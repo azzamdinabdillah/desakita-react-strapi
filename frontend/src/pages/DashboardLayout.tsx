@@ -17,7 +17,7 @@ export default function DashboardLayout() {
           isOpenSidebar={isOpenSidebar}
           setIsOpenSidebar={setIsOpenSidebar}
         />
-        <div className="p-6">
+        <div className="p-4 lg:p-6 lg:w-[calc(100%-300px)] lg:ml-auto">
           <Outlet />
         </div>
       </div>

@@ -9,7 +9,7 @@ interface HeaderIF {
 
 export default function Header({ isOpenSidebar, setIsOpenSidebar }: HeaderIF) {
   return (
-    <div className="bg-white p-6 flex items-center gap-4 lg:w-[calc(100%-300px)] ml-auto">
+    <div className="bg-white p-4 lg:p-6 flex items-center gap-4 lg:w-[calc(100%-300px)] lg:ml-auto">
       <div className="flex-grow">
         <Inputs
           isIconLeft={true}
