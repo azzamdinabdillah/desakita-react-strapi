@@ -1,0 +1,149 @@
+import { produce } from "immer";
+import { Dispatch, SetStateAction, useState } from "react";
+
+interface SidebarIF {
+  isOpenSidebar: boolean;
+  setIsOpenSidebar: Dispatch<SetStateAction<boolean>>;
+}
+export default function Sidebar({
+  isOpenSidebar,
+  setIsOpenSidebar,
+}: SidebarIF) {
+  const [menus, setMenus] = useState([
+    {
+      menu: "Dashboard",
+      icon: "/icons/menu-dashboard.svg",
+    },
+    {
+      menu: "Kepala Rumah",
+      icon: "/icons/menu-kepala-rumah.svg",
+    },
+    {
+      menu: "Bantuan Sosial",
+      icon: "/icons/menu-bansos.svg",
+      isExpanded: true,
+      subMenu: [
+        {
+          menu: "List Bansos",
+        },
+        {
+          menu: "Pengajuan Bansos",
+        },
+      ],
+    },
+    {
+      menu: "Jadwal Desa",
+      icon: "/icons/menu-jadwal.svg",
+      isExpanded: false,
+      subMenu: [
+        {
+          menu: "Pembangunan",
+        },
+        {
+          menu: "Event Desa",
+        },
+      ],
+    },
+    {
+      menu: "Profil Desa",
+      icon: "/icons/menu-profile.svg",
+    },
+  ]);
+
+  function toggleExpanded(menuString: string) {
+    setMenus(
+      produce((draft) => {
+        const isExpand = draft.find((menu) => menu.menu === menuString);
+
+        if (isExpand) {
+          isExpand.isExpanded = !isExpand.isExpanded;
+        }
+      })
+    );
+  }
+
+  return (
+    <div
+      className={`${
+        isOpenSidebar ? "translate-x-0 lg:translate-0" : "translate-x-full lg:translate-0"
+      } bg-black/15 transition-all fixed h-dvh w-[100vw] lg:w-[300px] z-10`}
+    >
+      <div className=" bg-white z-10 p-6 lg:py-[30px] h-full ml-auto w-[100vw] lg:w-[300px] gap-6 flex flex-col">
+        <div className="top">
+          <div className="flex justify-between items-center">
+            <div className="flex items-center gap-3">
+              <img src="/icons/logo.svg" alt="" />
+              <h1 className="text-2xl font-bold leading-normal text-black">
+                DesaKita.
+              </h1>
+            </div>
+            <img
+              onClick={() => setIsOpenSidebar(!isOpenSidebar)}
+              src="/icons/menu.svg"
+              alt=""
+              className="w-11 rounded-2xl border border-bg-color p-1.5"
+            />
+          </div>
+        </div>
+
+        <div className="main-menu flex flex-col gap-2">
+          <h2 className="text-sm font-medium leading-normal text-secondary-text-color">
+            Main Menu
+          </h2>
+
+          {menus.map((menu, index) => (
+            <div
+              onClick={() => {
+                if (menu.subMenu) {
+                  toggleExpanded(menu.menu);
+                }
+              }}
+              key={index}
+              className="menu group hover:bg-foreshadow rounded-2xl cursor-pointer transition-all p-4 text-base text-secondary-text-color font-normal leading-normal"
+            >
+              <div className="flex justify-between items-center ">
+                <div className="gap-2 flex items-center">
+                  <img src={menu.icon} alt="" />
+                  <h3 className="group-hover:text-dark-green group-hover:font-medium">{menu.menu}</h3>
+                </div>
+                {menu.subMenu && (
+                  <img
+                    src="/icons/dropdown-menu-sidebar.svg"
+                    alt=""
+                    className={`transition-all ${
+                      menu.isExpanded ? "rotate-180" : ""
+                    }`}
+                  />
+                )}
+              </div>
+              {menu.subMenu && (
+                <div
+                  className={`${
+                    menu.isExpanded ? "max-h-96 mt-4" : "max-h-0"
+                  } sub-menu overflow-hidden transition-all ml-3 relative before:absolute before:top-0 before:left-0 before:w-0.5 before:h-[80%] before:bg-[#F2F9F6]`}
+                >
+                  <h4 className="p-4 pl-11 relative">
+                    <img
+                      src="/icons/line-sub-menu.svg"
+                      className="absolute left-0 top-1"
+                      alt=""
+                    />
+                    {menu.subMenu[0].menu}
+                  </h4>
+                  <h4 className="p-4 pl-11 pb-0 relative">
+                    <img
+                      src="/icons/line-sub-menu.svg"
+                      className="absolute left-0 top-1"
+                      alt=""
+                    />
+                    {menu.subMenu[1].menu}
+                  </h4>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}

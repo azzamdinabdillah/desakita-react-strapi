@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+@theme {
+  --color-bg-color: #f2f9f6;
+  --color-secondary-text-color: #5a7a7e;
+  --color-black: #001b1a;
+  --color-dark-green: #34613a;
+  --color-foreshadow: #f1fae6;
+}
+
+html {
+  background-color: #f2f9f6;
+}
+
+* {
+  font-family: "Lexend Deca", sans-serif;
+}
