@@ -12,12 +12,12 @@ export default function DashboardLayout() {
         setIsOpenSidebar={setIsOpenSidebar}
       />
 
-      <div>
+      <div className="flex flex-col min-h-dvh">
         <Header
           isOpenSidebar={isOpenSidebar}
           setIsOpenSidebar={setIsOpenSidebar}
         />
-        <div className="p-4 lg:p-6 lg:w-[calc(100%-300px)] lg:ml-auto">
+        <div className="p-4 lg:p-6 lg:w-[calc(100%-300px)] lg:ml-auto flex-1 mt-22 lg:mt-28">
           <Outlet />
         </div>
       </div>

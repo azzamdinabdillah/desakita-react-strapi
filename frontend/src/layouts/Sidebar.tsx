@@ -104,7 +104,7 @@ export default function Sidebar({
                   toggleExpanded(menu.menu);
                 } else {
                   navigate(menu.link || "/");
-                  console.log("bismillah");
+                  setIsOpenSidebar(false);
                 }
               }}
               key={index}

@@ -18,4 +18,9 @@ html {
 
 hr {
   border: 1px solid #f2f9f6;
+  opacity: .5;
+}
+
+.flex-wrapper {
+  @apply flex flex-col gap-5 lg:gap-6;
 }
