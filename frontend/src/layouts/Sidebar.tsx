@@ -24,7 +24,7 @@ export default function Sidebar({
     {
       menu: "Bantuan Sosial",
       icon: "/icons/menu-bansos.svg",
-      isExpanded: false,
+      isExpanded: true,
       subMenu: [
         {
           menu: "List Bansos",
@@ -37,7 +37,7 @@ export default function Sidebar({
     {
       menu: "Jadwal Desa",
       icon: "/icons/menu-jadwal.svg",
-      isExpanded: false,
+      isExpanded: true,
       subMenu: [
         {
           menu: "Pembangunan",

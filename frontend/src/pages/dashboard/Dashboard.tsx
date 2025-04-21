@@ -64,7 +64,7 @@ export default function Dashboard() {
               className="flex flex-col  flex-grow gap-3 bg-white rounded-3xl p-6"
             >
               <div className="top flex justify-between items-center gap-3">
-                <h5 className="text-16 font-medium ">{stat.title}</h5>
+                <h5 className="text-16 font-medium text-secondary-text-color">{stat.title}</h5>
                 <img src={stat.icons} alt="" />
               </div>
               <div className="gap-1.5 flex flex-col">
