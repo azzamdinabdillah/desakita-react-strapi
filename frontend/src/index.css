@@ -18,9 +18,19 @@ html {
 
 hr {
   border: 1px solid #f2f9f6;
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .flex-wrapper {
-  @apply flex flex-col gap-5 lg:gap-6;
+  @apply flex flex-col gap-4 lg:gap-6;
+}
+
+.label-radio:has(.input-radio-choose-role-login:checked) {
+  border: 1px solid #34613a;
+  background-color: #f1fae6;
+  color: #34613a;
+}
+
+.login-right {
+  background: linear-gradient(210deg, #89b854 1.15%, #042f2b 100%);
 }

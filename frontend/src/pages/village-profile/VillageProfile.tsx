@@ -51,7 +51,7 @@ export default function VillageProfile() {
       <TitlePage
         title="Profil Desa"
         leftElement={
-          <Link to={"/village-profile/edit-village-profile"}>
+          <Link to={"/village-profile/create-village-profile"}>
             <Button variant="black">
               Edit Data
               <img className="w-4 lg:w-6" src="/icons/edit.svg" alt="" />
@@ -91,12 +91,12 @@ export default function VillageProfile() {
               <img
                 src={images[activeImage]}
                 alt=""
-                className="rounded-xl lg:rounded-3xl h-[200px] object-cover w-full lg:max-w-[800px] lg:h-[760px]"
+                className="rounded-xl lg:rounded-3xl h-[200px] object-cover w-full lg:max-w-[800px] lg:h-[492px]"
               />
 
               <button
                 onClick={() => setIsOpenModalImage(false)}
-                className="flex gap-2 border border-white/50 rounded-full py-2 px-4 lg:py-3 lg:px-4 text-sm lg:text-base font-semibold leading-normal items-center text-white"
+                className="flex cursor-pointer gap-2 border border-white/50 rounded-full py-2 px-4 lg:py-3 lg:px-4 text-sm lg:text-base font-semibold leading-normal items-center text-white"
               >
                 <img src="/icons/close-circle.svg" alt="" />
                 Tutup
@@ -109,7 +109,7 @@ export default function VillageProfile() {
                       onClick={() => {
                         toggleChangeMainImage(index);
                       }}
-                      className="relative rounded-xl lg:rounded-3xl overflow-hidden w-full"
+                      className="relative cursor-pointer rounded-xl lg:rounded-3xl overflow-hidden w-full"
                     >
                       <img
                         src={image}
@@ -146,7 +146,7 @@ export default function VillageProfile() {
                         toggleChangeMainImage(index);
                       }
                     }}
-                    className="relative rounded-xl lg:rounded-3xl overflow-hidden"
+                    className="relative cursor-pointer rounded-xl lg:rounded-3xl overflow-hidden"
                   >
                     {index === images.length - 1 && (
                       <div className="bg-black/80 text-lg lg:text-[20px] font-bold leading-normal text-white text-center absolute top-0 left-0 w-full h-full z-10 flex justify-center items-center">

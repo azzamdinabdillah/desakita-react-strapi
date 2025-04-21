@@ -8,11 +8,13 @@ import VillageProfile, {
 import Dashboard from "./pages/dashboard/Dashboard.tsx";
 import DashboardLayout from "./pages/DashboardLayout.tsx";
 import CreateVillageProfile from "./pages/village-profile/resources/CreateVillageProfile.tsx";
+import Login from "./pages/auth/Login.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
+        <Route path="/login" element={<Login />} />
         <Route path="/" element={<DashboardLayout />}>
           <Route index element={<Dashboard />} />
 

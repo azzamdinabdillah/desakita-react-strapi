@@ -72,7 +72,7 @@ export default function Sidebar({
         isOpenSidebar
           ? "translate-x-0 lg:translate-0"
           : "translate-x-full lg:translate-0"
-      } bg-black/15 transition-all fixed h-dvh w-[100vw] lg:w-[300px] z-10`}
+      } bg-black/15 transition-all fixed z-20 h-dvh w-[100vw] lg:w-[300px]`}
     >
       <div className=" bg-white z-10 p-6 lg:py-[30px] h-full ml-auto w-[100vw] lg:w-[300px] gap-6 flex flex-col">
         <div className="top">

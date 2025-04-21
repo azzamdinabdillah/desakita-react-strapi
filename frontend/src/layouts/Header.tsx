@@ -9,9 +9,10 @@ interface HeaderIF {
 
 export default function Header({ isOpenSidebar, setIsOpenSidebar }: HeaderIF) {
   return (
-    <div className="bg-white fixed z-10 w-full right-0 p-4 lg:p-6 flex items-center gap-4 lg:w-[calc(100%-300px)] lg:ml-auto">
+    <div className="bg-white fixed z-20 w-full right-0 p-4 lg:p-6 flex items-center gap-4 lg:w-[calc(100%-300px)] lg:ml-auto">
       <div className="flex-grow">
         <Inputs
+          customClass="rounded-full"
           isIconLeft={true}
           icons={SearchNormalSvg}
           type="text"
