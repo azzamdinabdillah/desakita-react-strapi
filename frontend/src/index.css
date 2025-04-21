@@ -6,6 +6,7 @@
   --color-black: #001b1a;
   --color-dark-green: #34613a;
   --color-foreshadow: #f1fae6;
+  --color-yellow: #deff6e;
 }
 
 html {
@@ -31,6 +32,15 @@ hr {
   color: #34613a;
 }
 
-.login-right {
+.login-right,
+.color-gradient-green {
   background: linear-gradient(210deg, #89b854 1.15%, #042f2b 100%);
+}
+
+.text-16 {
+  @apply text-sm lg:text-base;
+}
+
+.text-14 {
+  @apply text-xs lg:text-sm;
 }

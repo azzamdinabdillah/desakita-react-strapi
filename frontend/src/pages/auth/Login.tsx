@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import Button from "../../components/Button";
 import Inputs from "../../components/Inputs";
 import Label from "../../components/Label";
@@ -80,22 +81,32 @@ export default function Login() {
         </div>
 
         <div className="w-full">
-          <Button variant="green" customClass="w-full justify-center">
-            Masuk
-          </Button>
+          <Link to="/">
+            <Button variant="green" customClass="w-full justify-center">
+              Masuk
+            </Button>
+          </Link>
         </div>
       </div>
-      <div className="gap-9 flex-col hidden lg:flex rounded-3xl login-right px-[40px] py-[60px]"> 
+      <div className="gap-9 flex-col hidden lg:flex rounded-3xl login-right px-[40px] py-[60px]">
         <div className="gap-3 flex flex-col">
           <p className="text-[#DEFF6E] text-sm font-medium capitalize">
             — Best Dashboard in the world
           </p>
           <h1 className="text-white text-[32px] font-bold capitalize">
             The simple way to manage <br /> your citizens
-            <img src="/images/login-people.png" alt="" className="inline ml-2 w-[100px]" />
+            <img
+              src="/images/login-people.png"
+              alt=""
+              className="inline ml-2 w-[100px]"
+            />
           </h1>
         </div>
-        <img src="/images/login-right-preview-dashboard.png" alt="" className="object-contain" />
+        <img
+          src="/images/login-right-preview-dashboard.png"
+          alt=""
+          className="object-contain"
+        />
         <div className="gap-4 flex flex-col">
           <p className="text-[#DEFF6E] text-sm font-medium capitalize">
             — Best Dashboard in the world

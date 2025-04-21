@@ -3,16 +3,17 @@ import { ReactNode } from "react";
 export default function Button({
   children,
   variant,
-  customClass
+  customClass,
 }: {
   children: ReactNode;
-  variant: "black" | "green" | "pink";
+  variant: "black" | "green" | "pink" | "white";
   customClass?: string;
 }) {
   const variantClasses: { [key: string]: string } = {
     black: "bg-black text-white",
     green: "bg-dark-green text-white",
     pink: "bg-[#FF5070] text-white",
+    white: "bg-white text-dark-green font-medium",
   };
   return (
     <button
