@@ -44,3 +44,7 @@ hr {
 .text-14 {
   @apply text-xs lg:text-sm;
 }
+
+.text-20{
+  @apply text-base lg:text-xl;
+}

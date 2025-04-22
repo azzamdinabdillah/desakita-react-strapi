@@ -1,6 +1,6 @@
 import { produce } from "immer";
 import { Dispatch, SetStateAction, useState } from "react";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 interface SidebarIF {
   isOpenSidebar: boolean;
@@ -11,6 +11,8 @@ export default function Sidebar({
   setIsOpenSidebar,
 }: SidebarIF) {
   const navigate = useNavigate();
+  const location = useLocation();
+
   const [menus, setMenus] = useState([
     {
       menu: "Dashboard",
@@ -108,12 +110,14 @@ export default function Sidebar({
                 }
               }}
               key={index}
-              className="menu group hover:bg-foreshadow rounded-2xl cursor-pointer transition-all p-4 text-base text-secondary-text-color font-normal leading-normal"
+              className={`menu group hover:bg-foreshadow rounded-2xl cursor-pointer transition-all p-4 text-base text-secondary-text-color font-normal leading-normal ${
+                location.pathname === menu.link ? "bg-foreshadow" : ""
+              }`}
             >
               <div className="flex justify-between items-center ">
                 <div className="gap-2 flex items-center">
                   <img src={menu.icon} alt="" />
-                  <h3 className="group-hover:text-dark-green group-hover:font-medium">
+                  <h3 className={`${location.pathname === menu.link ? "text-dark-green font-medium" : ""} group-hover:text-dark-green group-hover:font-medium`}>
                     {menu.menu}
                   </h3>
                 </div>
