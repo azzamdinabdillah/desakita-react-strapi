@@ -170,6 +170,17 @@ function StatsDashboard({
   );
 }
 
+function EmptyData({ images, message }: { images: string; message: string }) {
+  return (
+    <div className="flex flex-col gap-4 lg:gap-6 items-center h-[200px] lg:h-[384px] justify-center">
+      <img src={images} className="w-[40px] lg:w-[52px]" alt="" />
+      <p className="text-16 text-secondary-text-color font-medium text-center">
+        {message}
+      </p>
+    </div>
+  );
+}
+
 export default function Dashboard() {
   return (
     <div className="gap-3.5 flex flex-col">
@@ -220,49 +231,56 @@ export default function Dashboard() {
                 </h1>
 
                 <div className="gap-4 flex flex-col">
-                  {lastBansos.map((bansos, index) => (
-                    <>
-                      <div
-                        key={index}
-                        className="flex gap-2 lg:gap-3 items-center"
-                      >
-                        <img
-                          className="w-[50px] lg:w-[72px]"
-                          src={
-                            bansos.type === "money"
-                              ? "/icons/stat-bansos-uang.svg"
-                              : bansos.type === "goods"
-                              ? "/icons/stat-bansos-barang.svg"
-                              : ""
-                          }
-                          alt=""
-                        />
-                        <div className="flex flex-col gap-1 lg:gap-2 overflow-hidden flex-grow">
-                          <h2 className="text-black text-20 font-semibold">
-                            {bansos.value}
-                          </h2>
-                          <div className="flex items-center gap-[2px] text-xs lg:text-base text-secondary-text-color font-medium">
-                            <img
-                              src="/icons/profile.svg"
-                              className="inline w-[15px] lg:w-[18px]"
-                              alt=""
+                  {lastBansos.length ? (
+                    lastBansos.map((bansos, index) => (
+                      <>
+                        <div
+                          key={index}
+                          className="flex gap-2 lg:gap-3 items-center"
+                        >
+                          <img
+                            className="w-[50px] lg:w-[72px]"
+                            src={
+                              bansos.type === "money"
+                                ? "/icons/stat-bansos-uang.svg"
+                                : bansos.type === "goods"
+                                ? "/icons/stat-bansos-barang.svg"
+                                : ""
+                            }
+                            alt=""
+                          />
+                          <div className="flex flex-col gap-1 lg:gap-2 overflow-hidden flex-grow">
+                            <h2 className="text-black text-20 font-semibold">
+                              {bansos.value}
+                            </h2>
+                            <div className="flex items-center gap-[2px] text-xs lg:text-base text-secondary-text-color font-medium">
+                              <img
+                                src="/icons/profile.svg"
+                                className="inline w-[15px] lg:w-[18px]"
+                                alt=""
+                              />
+                              <span className="max-w-[150px] lg:max-w-full whitespace-nowrap overflow-hidden text-ellipsis">
+                                Diberikan oleh {bansos.sender}
+                              </span>
+                            </div>
+                          </div>
+                          <div className="width-fit">
+                            <DashboardStatus
+                              type={bansos.status}
+                              title={bansos.status}
                             />
-                            <span className="max-w-[150px] lg:max-w-full whitespace-nowrap overflow-hidden text-ellipsis">
-                              Diberikan oleh {bansos.sender}
-                            </span>
                           </div>
                         </div>
-                        <div className="width-fit">
-                          <DashboardStatus
-                            type={bansos.status}
-                            title={bansos.status}
-                          />
-                        </div>
-                      </div>
 
-                      {index !== lastBansos.length - 1 && <hr />}
-                    </>
-                  ))}
+                        {index !== lastBansos.length - 1 && <hr />}
+                      </>
+                    ))
+                  ) : (
+                    <EmptyData
+                      images="/icons/bag-cross.svg"
+                      message="Ups, nampaknya belum bansos"
+                    />
+                  )}
                 </div>
               </div>
             }
@@ -305,6 +323,7 @@ export default function Dashboard() {
           </div>
 
           <hr />
+
           <div className="flex flex-col gap-4">
             <div className="top flex justify-between gap-4 items-center">
               <img
@@ -340,6 +359,11 @@ export default function Dashboard() {
                 </div>
               </div>
             </div>
+
+            {/* <EmptyData
+              images="/icons/calendar-remove.svg"
+              message="Ups, nampaknya belum event"
+            /> */}
           </div>
         </div>
       </div>
@@ -362,45 +386,52 @@ export default function Dashboard() {
                   </h1>
 
                   <div className="gap-4 flex flex-col">
-                    {applicants.map((appliccant, index) => (
-                      <>
-                        <div
-                          key={index}
-                          className="flex gap-2 lg:gap-3 items-center"
-                        >
-                          <img
-                            className="w-[50px] lg:w-[72px] rounded-2xl"
-                            src={appliccant.images}
-                            alt=""
-                          />
-                          <div className="flex flex-col gap-1 lg:gap-2 overflow-hidden flex-grow">
-                            <div className="flex items-center gap-1 lg:gap-2">
-                              <div className="bg-foreshadow rounded-full w-6 lg:w-8 overflow-hidden">
-                                <img
-                                  src={appliccant.userImage}
-                                  alt=""
-                                  className="w-full h-full"
-                                />
-                              </div>
-                              <h2 className="text-black text-[15px] lg:text-[18px] font-semibold whitespace-nowrap text-ellipsis overflow-hidden">
-                                {appliccant.name}
-                              </h2>
-                            </div>
-                            <div className="text-xs max-w-[150px] lg:max-w-full lg:text-base text-secondary-text-color font-medium whitespace-nowrap text-ellipsis overflow-hidden">
-                              {appliccant.job}
-                            </div>
-                          </div>
-                          <div className="width-fit">
-                            <DashboardStatus
-                              type={appliccant.status}
-                              title={appliccant.status}
+                    {applicants.length > 0 ? (
+                      applicants.map((appliccant, index) => (
+                        <>
+                          <div
+                            key={index}
+                            className="flex gap-2 lg:gap-3 items-center"
+                          >
+                            <img
+                              className="w-[50px] lg:w-[72px] rounded-2xl"
+                              src={appliccant.images}
+                              alt=""
                             />
+                            <div className="flex flex-col gap-1 lg:gap-2 overflow-hidden flex-grow">
+                              <div className="flex items-center gap-1 lg:gap-2">
+                                <div className="bg-foreshadow rounded-full w-6 lg:w-8 overflow-hidden">
+                                  <img
+                                    src={appliccant.userImage}
+                                    alt=""
+                                    className="w-full h-full"
+                                  />
+                                </div>
+                                <h2 className="text-black text-[15px] lg:text-[18px] font-semibold whitespace-nowrap text-ellipsis overflow-hidden">
+                                  {appliccant.name}
+                                </h2>
+                              </div>
+                              <div className="text-xs max-w-[150px] lg:max-w-full lg:text-base text-secondary-text-color font-medium whitespace-nowrap text-ellipsis overflow-hidden">
+                                {appliccant.job}
+                              </div>
+                            </div>
+                            <div className="width-fit">
+                              <DashboardStatus
+                                type={appliccant.status}
+                                title={appliccant.status}
+                              />
+                            </div>
                           </div>
-                        </div>
 
-                        {index !== applicants.length - 1 && <hr />}
-                      </>
-                    ))}
+                          {index !== applicants.length - 1 && <hr />}
+                        </>
+                      ))
+                    ) : (
+                      <EmptyData
+                        images="/icons/note-remove.svg"
+                        message="Ups, nampaknya belum applicant"
+                      />
+                    )}
                   </div>
                 </div>
               }
