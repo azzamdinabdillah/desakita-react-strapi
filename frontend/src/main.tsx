@@ -9,6 +9,7 @@ import Dashboard from "./pages/dashboard/Dashboard.tsx";
 import DashboardLayout from "./pages/DashboardLayout.tsx";
 import CreateVillageProfile from "./pages/village-profile/resources/CreateVillageProfile.tsx";
 import Login from "./pages/auth/Login.tsx";
+import HeadHouse from "./pages/head-house/HeadHouse.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -17,6 +18,10 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<DashboardLayout />}>
           <Route index element={<Dashboard />} />
+
+          <Route path="/head-house">
+            <Route index element={<HeadHouse />} />
+          </Route>
 
           <Route path="/village-profile">
             <Route index element={<VillageProfile />} />

@@ -21,6 +21,7 @@ export default function Sidebar({
     },
     {
       menu: "Kepala Rumah",
+      link: "/head-house",
       icon: "/icons/menu-kepala-rumah.svg",
     },
     {
@@ -117,7 +118,13 @@ export default function Sidebar({
               <div className="flex justify-between items-center ">
                 <div className="gap-2 flex items-center">
                   <img src={menu.icon} alt="" />
-                  <h3 className={`${location.pathname === menu.link ? "text-dark-green font-medium" : ""} group-hover:text-dark-green group-hover:font-medium`}>
+                  <h3
+                    className={`${
+                      location.pathname === menu.link
+                        ? "text-dark-green font-medium"
+                        : ""
+                    } group-hover:text-dark-green group-hover:font-medium`}
+                  >
                     {menu.menu}
                   </h3>
                 </div>
