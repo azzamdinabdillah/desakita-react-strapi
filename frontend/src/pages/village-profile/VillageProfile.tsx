@@ -210,7 +210,7 @@ export default function VillageProfile() {
 
           <div className="flex flex-col gap-4">
             <div className="flex gap-3 items-center">
-              <div className="image bg-[#F1FAE6] rounded-full overflow-hidden lg:hidden">
+              <div className="image bg-[#F1FAE6] rounded-full overflow-hidden">
                 <img src="/images/user.png" alt="" />
               </div>
               <div className="lg:gap-1 flex flex-col">

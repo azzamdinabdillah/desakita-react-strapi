@@ -374,7 +374,7 @@ export default function Dashboard() {
                             alt=""
                           />
                           <div className="flex flex-col gap-1 lg:gap-2 overflow-hidden flex-grow">
-                            <div className="flex items-center gap-1">
+                            <div className="flex items-center gap-1 lg:gap-2">
                               <div className="bg-foreshadow rounded-full w-6 lg:w-8 overflow-hidden">
                                 <img
                                   src={appliccant.userImage}
