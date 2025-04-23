@@ -3,12 +3,13 @@ export default function DashboardStatus({
   type,
 }: {
   title: string;
-  type: "Diterima" | "Ditolak" | "Menunggu";
+  type: "Diterima" | "Ditolak" | "Menunggu" | "softGreen";
 }) {
   const variantClasses: { [key: string]: string } = {
     Menunggu: "bg-[#FBAD4A] text-white",
     Diterima: "bg-[#34613A] text-white",
     Ditolak: "bg-[#FA7139] text-white",
+    softGreen: "bg-[#8EBD55] text-white",
   };
   return (
     <div

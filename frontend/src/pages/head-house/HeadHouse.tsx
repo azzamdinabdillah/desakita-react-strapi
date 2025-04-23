@@ -18,7 +18,7 @@ export default function HeadHouse() {
         }
       />
 
-      <div>
+      <div className="flex flex-col">
         <div className="top flex flex-wrap justify-between items-center gap-3">
           <div className="md:max-w-[370px] w-full">
             <Inputs
@@ -57,6 +57,88 @@ export default function HeadHouse() {
               Filter
             </Button>
           </div>
+        </div>
+
+        <div className="overflow-x-auto w-full mt-1">
+          <table className="border-separate border-spacing-y-[14px] table-auto w-full">
+            {Array.from({ length: 5 }, (_, index) => (
+              <tr key={index} className="bg-white w-full">
+                <td className="">
+                  <div className="flex gap-3 items-center w-full">
+                    <div className="bg-foreshadow rounded-full w-[50px] lg:w-[64px] overflow-hidden">
+                      <img
+                        src="/images/user.png"
+                        alt=""
+                        className="w-full h-full"
+                      />
+                    </div>
+
+                    <div className="flex flex-col gap-1 lg:gap-[8px]">
+                      <h3 className="text-base lg:text-[18px] font-semibold text-black">
+                        Andi Alif Baro
+                      </h3>
+                      <div className="flex items-center gap-1">
+                        <img
+                          src="/icons/briefcase.svg"
+                          alt=""
+                          className="w-3.5 lg:w-[18px]"
+                        />
+                        <span className="text-14 font-medium text-secondary-text-color">
+                          Mekanik Kendaraan
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+
+                <td>
+                  <div className="flex gap-1 flex-col w-full">
+                    <div className="flex gap-1 items-center">
+                      <img src="/icons/keyboard.svg" alt="" />
+                      <span className="text-14 font-medium text-secondary-text-color">
+                        NIK
+                      </span>
+                    </div>
+                    <p className="text-16 text-black font-semibold">
+                      2005100592201005
+                    </p>
+                  </div>
+                </td>
+
+                <td>
+                  <div className="rounded-full inline-flex w-auto gap-1 items-center py-2 px-3 pr-8.5 lg:py-3.5 lg:px-4 bg-[#005CAA]/[0.09]">
+                    <img src="/icons/profile-2user-blue.svg" alt="" />
+                    <span className="text-16 text-[#005CAA] font-medium">
+                      99 Anggota Keluarga
+                    </span>
+                  </div>
+                </td>
+
+                <td>
+                  <Link to={"/head-house/manage-head-house"}>
+                    <Button variant="black">Manage</Button>
+                  </Link>
+                </td>
+              </tr>
+            ))}
+          </table>
+        </div>
+
+        <div className="flex gap-3 text-16 font-semibold text-dark-green items-center mt-3 lg:mt-6 justify-center lg:justify-end">
+          <img
+            src="/icons/pagination-right.svg"
+            alt=""
+            className="rotate-180"
+          />
+          {Array.from({ length: 3 }, (_, index) => (
+            <div
+              key={index}
+              className="w-[44px] hover:bg-soft-green hover:text-white transition-all cursor-pointer h-[44px] rounded-full bg-foreshadow flex items-center justify-center"
+            >
+              {index + 1}
+            </div>
+          ))}
+          <img src="/icons/pagination-right.svg" alt="" />
         </div>
       </div>
     </div>

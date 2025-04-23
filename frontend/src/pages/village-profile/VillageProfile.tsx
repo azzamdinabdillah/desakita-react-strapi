@@ -3,6 +3,7 @@ import TitlePage from "../../components/TitlePage";
 import Button from "../../components/Button";
 import WrapperElement from "../../layouts/WrapperElement";
 import { Link } from "react-router";
+import Title from "../../components/Title";
 
 export default function VillageProfile() {
   const [isOpenModalImage, setIsOpenModalImage] = useState<boolean>(false);
@@ -62,13 +63,7 @@ export default function VillageProfile() {
 
       <div className="grid grid-cols-1 lg:flex gap-3.5 lg:items-start">
         <WrapperElement customClass="lg:flex-1">
-          <div className="flex justify-between items-center">
-            <h4 className="text-sm lg:text-base text-secondary-text-color font-medium leading-normal">
-              Nama Desa
-            </h4>
-
-            <img src="/icons/nama-desa.svg" alt="" className="w-10 lg:w-12" />
-          </div>
+          <Title subTitle="Nama Desa" icon="/icons/nama-desa.svg" />
 
           <div className="flex flex-col gap-1.5">
             <h2 className="text-xl lg:text-[32px] text-black font-semibold">
@@ -204,9 +199,7 @@ export default function VillageProfile() {
         </WrapperElement>
 
         <WrapperElement customClass="lg:w-[398px]">
-          <h4 className="text-sm lg:text-base text-secondary-text-color font-medium leading-normal">
-            Nama Desa
-          </h4>
+          <Title subTitle="Detail Desa" />
 
           <div className="flex flex-col gap-4">
             <div className="flex gap-3 items-center">

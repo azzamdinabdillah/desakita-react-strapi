@@ -10,6 +10,7 @@ import DashboardLayout from "./pages/DashboardLayout.tsx";
 import CreateVillageProfile from "./pages/village-profile/resources/CreateVillageProfile.tsx";
 import Login from "./pages/auth/Login.tsx";
 import HeadHouse from "./pages/head-house/HeadHouse.tsx";
+import ManageHeadHouse from "./pages/head-house/resources/ManageHeadHouse.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -21,6 +22,7 @@ createRoot(document.getElementById("root")!).render(
 
           <Route path="/head-house">
             <Route index element={<HeadHouse />} />
+            <Route path="manage-head-house" element={<ManageHeadHouse />} />
           </Route>
 
           <Route path="/village-profile">

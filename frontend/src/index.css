@@ -7,6 +7,7 @@
   --color-dark-green: #34613a;
   --color-foreshadow: #f1fae6;
   --color-yellow: #deff6e;
+  --color-soft-green: #8ebd55;
 }
 
 html {
@@ -45,6 +46,22 @@ hr {
   @apply text-xs lg:text-sm;
 }
 
-.text-20{
+.text-20 {
   @apply text-base lg:text-xl;
+}
+
+.title-container-wrapper {
+  @apply text-sm lg:text-base font-medium text-secondary-text-color;
+}
+
+table td {
+  @apply p-4 lg:p-6 whitespace-nowrap;
+}
+
+table td:first-child {
+  @apply rounded-l-2xl lg:rounded-l-3xl;
+}
+
+table td:last-child {
+  @apply rounded-r-2xl lg:rounded-r-3xl;
 }
