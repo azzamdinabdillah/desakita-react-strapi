@@ -3,6 +3,7 @@ import Button from "../../components/Button";
 import TitlePage from "../../components/TitlePage";
 import DashboardStatus from "../../components/DashboardStatus";
 import CitizenStatistic from "../../components/CitizenStatistic";
+import CardItemGeneral from "../../components/CardItemGeneral";
 
 const stats = [
   {
@@ -234,43 +235,31 @@ export default function Dashboard() {
                   {lastBansos.length ? (
                     lastBansos.map((bansos, index) => (
                       <>
-                        <div
+                        <CardItemGeneral
                           key={index}
-                          className="flex gap-2 lg:gap-3 items-center"
-                        >
-                          <img
-                            className="w-[50px] lg:w-[72px]"
-                            src={
-                              bansos.type === "money"
-                                ? "/icons/stat-bansos-uang.svg"
-                                : bansos.type === "goods"
-                                ? "/icons/stat-bansos-barang.svg"
-                                : ""
-                            }
-                            alt=""
-                          />
-                          <div className="flex flex-col gap-1 lg:gap-2 overflow-hidden flex-grow">
-                            <h2 className="text-black text-20 font-semibold">
-                              {bansos.value}
-                            </h2>
-                            <div className="flex items-center gap-[2px] text-xs lg:text-base text-secondary-text-color font-medium">
-                              <img
-                                src="/icons/profile.svg"
-                                className="inline w-[15px] lg:w-[18px]"
-                                alt=""
-                              />
-                              <span className="max-w-[150px] lg:max-w-full whitespace-nowrap overflow-hidden text-ellipsis">
-                                Diberikan oleh {bansos.sender}
-                              </span>
-                            </div>
-                          </div>
-                          <div className="width-fit">
+                          image={
+                            bansos.type === "money"
+                              ? "/icons/stat-bansos-uang.svg"
+                              : bansos.type === "goods"
+                              ? "/icons/stat-bansos-barang.svg"
+                              : ""
+                          }
+                          title={bansos.value}
+                          subTitle={`Diberikan Oleh ${bansos.sender}`}
+                          subTitleLeft={
+                            <img
+                              src="/icons/profile.svg"
+                              className="inline w-[15px] lg:w-[18px]"
+                              alt=""
+                            />
+                          }
+                          right={
                             <DashboardStatus
                               type={bansos.status}
                               title={bansos.status}
                             />
-                          </div>
-                        </div>
+                          }
+                        />
 
                         {index !== lastBansos.length - 1 && <hr />}
                       </>
@@ -387,9 +376,9 @@ export default function Dashboard() {
 
                   <div className="gap-4 flex flex-col">
                     {applicants.length > 0 ? (
-                      applicants.map((appliccant, index) => (
+                      applicants.map((applicant, index) => (
                         <>
-                          <div
+                          {/* <div
                             key={index}
                             className="flex gap-2 lg:gap-3 items-center"
                           >
@@ -421,7 +410,29 @@ export default function Dashboard() {
                                 title={appliccant.status}
                               />
                             </div>
-                          </div>
+                          </div> */}
+
+                          <CardItemGeneral
+                            key={index}
+                            image={applicant.images}
+                            title={applicant.name}
+                            titleLeft={
+                              <div className="bg-foreshadow rounded-full w-6 lg:w-8 overflow-hidden">
+                                <img
+                                  src={applicant.userImage}
+                                  alt=""
+                                  className="w-full h-full"
+                                />
+                              </div>
+                            }
+                            subTitle={applicant.job}
+                            right={
+                              <DashboardStatus
+                                type={applicant.status}
+                                title={applicant.status}
+                              />
+                            }
+                          />
 
                           {index !== applicants.length - 1 && <hr />}
                         </>

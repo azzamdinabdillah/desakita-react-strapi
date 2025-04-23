@@ -8,6 +8,7 @@
   --color-foreshadow: #f1fae6;
   --color-yellow: #deff6e;
   --color-soft-green: #8ebd55;
+  --color-soft-red: #ff5070;
 }
 
 html {
@@ -48,6 +49,10 @@ hr {
 
 .text-20 {
   @apply text-base lg:text-xl;
+}
+
+.text-18 {
+  @apply text-base lg:text-lg;
 }
 
 .title-container-wrapper {
