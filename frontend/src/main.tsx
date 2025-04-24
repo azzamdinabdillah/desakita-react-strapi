@@ -11,6 +11,8 @@ import CreateVillageProfile from "./pages/village-profile/resources/CreateVillag
 import Login from "./pages/auth/Login.tsx";
 import HeadHouse from "./pages/head-house/HeadHouse.tsx";
 import ManageHeadHouse from "./pages/head-house/resources/ManageHeadHouse.tsx";
+import CreateHeadHouse from "./pages/head-house/resources/CreateHeadHouse.tsx";
+import "react-datepicker/dist/react-datepicker.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -23,6 +25,7 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/head-house">
             <Route index element={<HeadHouse />} />
             <Route path="manage-head-house" element={<ManageHeadHouse />} />
+            <Route path="create-head-house" element={<CreateHeadHouse />} />
           </Route>
 
           <Route path="/village-profile">

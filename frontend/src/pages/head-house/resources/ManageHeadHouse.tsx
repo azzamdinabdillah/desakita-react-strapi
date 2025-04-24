@@ -7,8 +7,9 @@ import DetailsList from "../../../components/DetailsList";
 import Title from "../../../components/Title";
 import PeopleCard from "../../../components/PeopleCard";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import CardItemGeneral from "../../../components/CardItemGeneral";
+import Modal from "../../../components/Modal";
 
 const headDetail = [
   {
@@ -58,7 +59,7 @@ function RecentActivity({
   bottomRight?: string;
 }) {
   return (
-    <div className="gap-3 lg:gap-4 flex-col flex rounded-2xl border border-bg-color p-3 lg:p-4">
+    <div className="gap-4 lg:gap-4 flex-col flex rounded-2xl border border-bg-color p-3 lg:p-4">
       <div className="flex text-14 font-medium text-secondary-text-color justify-between items-center">
         <p>{date}</p>
         <img src="/icons/calendar-2.svg" alt="" />
@@ -66,7 +67,9 @@ function RecentActivity({
 
       <hr />
 
-      <h2 className="text-18 font-semibold text-black">{mainTitle}</h2>
+      {mainTitle && (
+        <h2 className="text-18 font-semibold text-black">{mainTitle}</h2>
+      )}
 
       <CardItemGeneral
         sizeVariant="small"
@@ -89,8 +92,22 @@ function RecentActivity({
 }
 
 export default function ManageHeadHouse() {
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
   return (
     <div className="flex flex-col gap-6">
+      <Modal
+        confirmButtonElement={
+          <Button variant="pink" customClass="flex-grow">
+            <img src="/icons/trash.svg" alt="" />
+            Iya Hapus
+          </Button>
+        }
+        message="Tindakan ini permanen dan tidak bisa dibatalkan!"
+        header="Hapus Kepala Keluarga?"
+        isOpen={isOpenModal}
+        setIsOpen={setIsOpenModal}
+      />
       <TitlePage
         title="Manage Kepala Rumah"
         subTitle={
@@ -102,12 +119,10 @@ export default function ManageHeadHouse() {
           </div>
         }
         leftElement={
-          <Link to={"/village-profile/create-village-profile"}>
-            <Button variant="pink">
-              Hapus Data
-              <img className="w-5 lg:w-6" src="/icons/trash.svg" alt="" />
-            </Button>
-          </Link>
+          <Button onClick={() => setIsOpenModal(true)} variant="pink">
+            Hapus Data
+            <img className="w-5 lg:w-6" src="/icons/trash.svg" alt="" />
+          </Button>
         }
       />
 
@@ -128,9 +143,10 @@ export default function ManageHeadHouse() {
             {headDetail.map((data, index) => (
               <>
                 <DetailsList
+                  key={index}
                   icon={data.icon}
-                  title={data.value}
-                  value={data.title}
+                  title={data.title}
+                  value={data.value}
                 />
 
                 {index !== headDetail.length - 1 && <hr />}
@@ -224,7 +240,7 @@ export default function ManageHeadHouse() {
                   <Tab
                     key={index}
                     selectedClassName="bg-black text-white"
-                    className="text-16 lg:flex-grow text-secondary-text-color font-medium py-2.5 px-5 flex justify-center items-center lg:py-2.5 lg:px-4.5 rounded-full border border-bg-color"
+                    className="text-16 lg:flex-grow cursor-pointer hover:bg-black hover:text-white transition-all text-secondary-text-color font-medium py-2.5 px-5 flex justify-center items-center lg:py-2.5 lg:px-4.5 rounded-full border border-bg-color"
                   >
                     {tab}
                   </Tab>
@@ -267,7 +283,7 @@ export default function ManageHeadHouse() {
                   right={<DashboardStatus type={"Ditolak"} title={"Ditolak"} />}
                 />
               </TabPanel>
-              <TabPanel className="gap-4 flex flex-col lg:gap-6 mt-4 lg:mt-6">
+              <TabPanel className="gap-4 flex flex-col lg:gap-6">
                 <RecentActivity
                   bottomLeft="Harga Event:"
                   bottomRight="Rp49.000"
@@ -330,7 +346,87 @@ export default function ManageHeadHouse() {
                 />
               </TabPanel>
               <TabPanel>
-                <h2>Any content 3</h2>
+                <div className="flex flex-col gap-4 lg:gap-6">
+                  <div className="gap-4 flex-col flex rounded-2xl border border-bg-color p-3 lg:p-4">
+                    <div className="top flex justify-between items-center">
+                      <img
+                        src="/images/image.png"
+                        alt="image applicant"
+                        className="w-[80px] h-[60px] object-cover rounded-2xl"
+                      />
+                      <DashboardStatus title="Menunggu" type="Menunggu" />
+                    </div>
+                    <div>
+                      <h2 className="text-16 font-semibold text-black">
+                        Pembangunan Jalanan Utama
+                      </h2>
+                      <p className="text-16 font-medium text-secondary-text-color">
+                        Penanggung jawab:{" "}
+                        <span className="font-semibold text-dark-green">
+                          Uzumaki Asep
+                        </span>
+                      </p>
+                    </div>
+
+                    <hr />
+
+                    <DetailsList
+                      colorVariant="greenSecondary"
+                      icon="/icons/calendar-2-bg.svg"
+                      title="3 Jan 2025"
+                      value="Tanggal Pelaksanaan"
+                    />
+
+                    <hr />
+
+                    <DetailsList
+                      colorVariant="greenSecondary"
+                      icon="/icons/calendar-2-bg.svg"
+                      title="24 Hari"
+                      value="Waktu Pelaksanaan"
+                    />
+                  </div>
+
+                  <div className="gap-4 flex-col flex rounded-2xl border border-bg-color p-3 lg:p-4">
+                    <div className="top flex justify-between items-center">
+                      <img
+                        src="/images/image.png"
+                        alt="image applicant"
+                        className="w-[80px] h-[60px] object-cover rounded-2xl"
+                      />
+                      <DashboardStatus title="Ditolak" type="Ditolak" />
+                    </div>
+                    <div>
+                      <h2 className="text-16 font-semibold text-black">
+                        Pembangunan Jalanan Utama
+                      </h2>
+                      <p className="text-16 font-medium text-secondary-text-color">
+                        Penanggung jawab:{" "}
+                        <span className="font-semibold text-dark-green">
+                          Uzumaki Asep
+                        </span>
+                      </p>
+                    </div>
+
+                    <hr />
+
+                    <DetailsList
+                      colorVariant="greenSecondary"
+                      icon="/icons/calendar-2-bg.svg"
+                      title="3 Jan 2025"
+                      value="Tanggal Pelaksanaan"
+                    />
+
+                    <hr />
+
+                    <DetailsList
+                      colorVariant="greenSecondary"
+                      icon="/icons/calendar-2-bg.svg"
+                      title="24 Hari"
+                      value="Waktu Pelaksanaan"
+                    />
+                  </div>
+                </div>
               </TabPanel>
             </Tabs>
           </WrapperElement>

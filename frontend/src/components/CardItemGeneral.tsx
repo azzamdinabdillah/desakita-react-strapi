@@ -11,7 +11,7 @@ export default function CardItemGeneral({
 }: {
   image: string;
   title: string | ReactNode;
-  subTitle: string;
+  subTitle: string | ReactNode;
   right?: ReactNode;
   subTitleLeft?: string | ReactNode;
   titleLeft?: string | ReactNode;

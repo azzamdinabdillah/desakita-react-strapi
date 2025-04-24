@@ -1,5 +1,5 @@
 interface InputComponentIF {
-  type: "text" | "number" | "email" | "password" | "file" | "textarea";
+  type: "text" | "number" | "email" | "password" | "file" | "textarea" | "date";
   placeholder: string;
   icons?: string;
   isIconLeft?: boolean;
@@ -7,6 +7,15 @@ interface InputComponentIF {
   customClass?: string;
   id?: string;
   rows?: number;
+  value?: string;
+  onClick?: (
+    event: React.MouseEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
+  ref?: React.ForwardedRef<HTMLInputElement | HTMLTextAreaElement>;
+  onChange?: (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
+  readonly?: boolean;
 }
 
 export default function Inputs({
@@ -18,10 +27,16 @@ export default function Inputs({
   isIconLeft,
   isIconRight,
   customClass,
+  value,
+  onClick,
+  ref,
+  onChange,
+  readonly,
 }: InputComponentIF) {
   const inputClass = `${
     icons ? "pl-11 lg:pl-12" : ""
-  } w-full text-black font-medium focus:border-1.5 focus:border-dark-green outline-none transition-all rounded-2xl border border-bg-color p-3 lg:p-4 text-sm lg:text-base placeholder:text-secondary-text-color placeholder:font-medium placeholder:text-sm lg:placeholder:text-base placeholder:leading-normal ${customClass}`;
+  } w-full text-black appearance-none font-medium focus:border-1.5 focus:border-dark-green outline-none transition-all rounded-2xl border border-bg-color p-3 lg:p-4 text-sm lg:text-base placeholder:text-secondary-text-color placeholder:font-medium placeholder:text-sm lg:placeholder:text-base placeholder:leading-normal ${customClass}`;
+
   return (
     <div className="relative w-full">
       {isIconLeft && (
@@ -33,14 +48,24 @@ export default function Inputs({
         <textarea
           rows={rows}
           id={id}
+          readOnly={readonly}
+          onClick={onClick as React.MouseEventHandler<HTMLTextAreaElement>}
+          value={value}
+          ref={ref as React.Ref<HTMLTextAreaElement>}
           className={inputClass}
+          onChange={onChange as React.ChangeEventHandler<HTMLTextAreaElement>}
           placeholder={placeholder}
-        ></textarea>
+        />
       ) : (
         <input
           id={id}
+          readOnly={readonly}
+          onClick={onClick as React.MouseEventHandler<HTMLInputElement>}
+          value={value}
+          ref={ref as React.Ref<HTMLInputElement>}
           type={type}
           className={inputClass}
+          onChange={onChange as React.ChangeEventHandler<HTMLInputElement>}
           placeholder={placeholder}
         />
       )}

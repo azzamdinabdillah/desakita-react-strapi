@@ -9,7 +9,7 @@ export default function HeadHouse() {
       <TitlePage
         title="Kepala Rumah"
         leftElement={
-          <Link to={"/village-profile/create-village-profile"}>
+          <Link to={"/head-house/create-head-house"}>
             <Button variant="green">
               <img className="w-5 lg:w-6" src="/icons/add-square.svg" alt="" />
               Add New
