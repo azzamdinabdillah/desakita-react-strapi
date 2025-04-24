@@ -230,6 +230,8 @@ export default function CreateHeadHouse() {
             </div>
           </div>
 
+          <hr />
+
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
             <Label customClass="col-span-2" labelFor="village-total-citizen">
               Status
