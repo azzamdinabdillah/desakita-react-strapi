@@ -9,7 +9,7 @@ import DatePicker from "react-datepicker";
 
 export default function CreateHeadHouse() {
   const [thumbnails, setThumbnails] = useState<File[]>([]);
-  const [startDate, setStartDate] = useState<Date | null>(null);
+  const [startDate, setStartDate] = useState<Date | null>(new Date());
   const CustomInputDate = forwardRef<
     HTMLInputElement,
     {
@@ -203,6 +203,11 @@ export default function CreateHeadHouse() {
             <div className="col-span-3">
               <DatePicker
                 selected={startDate}
+                maxDate={new Date()}
+                showYearDropdown
+                scrollableYearDropdown
+                showMonthDropdown
+                yearDropdownItemNumber={100}
                 onChange={(date: Date | null) =>
                   setStartDate(date ?? new Date())
                 }
