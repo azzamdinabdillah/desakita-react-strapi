@@ -1,15 +1,16 @@
-import { forwardRef, useEffect, useState } from "react";
+import { forwardRef, useState } from "react";
 import Button from "../../../components/Button";
 import Inputs from "../../../components/Inputs";
 import Label from "../../../components/Label";
 import TitlePage from "../../../components/TitlePage";
 import WrapperElement from "../../../layouts/WrapperElement";
-import { produce } from "immer";
 import DatePicker from "react-datepicker";
 
 export default function CreateHeadHouse() {
-  const [thumbnails, setThumbnails] = useState<File[]>([]);
-  const [startDate, setStartDate] = useState<Date | null>(new Date());
+  const [imageProfile, setImageProfile] = useState<File | null | undefined>(
+    null
+  );
+  const [startDate, setStartDate] = useState<Date | null>(null);
   const CustomInputDate = forwardRef<
     HTMLInputElement,
     {
@@ -24,7 +25,7 @@ export default function CreateHeadHouse() {
       value={value as string}
       onClick={onClick}
       ref={ref && undefined}
-      id="head-name"
+      id="head-date-birth"
       placeholder="Masukan tanggal lahir"
       isIconLeft={true}
       icons="/icons/calendar-2-2.svg"
@@ -32,40 +33,15 @@ export default function CreateHeadHouse() {
     />
   ));
 
-  useEffect(() => {
-    console.log(startDate?.getFullYear());
-    console.log(new Date().getFullYear());
-
-    console.log(
-      new Date().getFullYear() -
-        (startDate?.getFullYear()
-          ? startDate?.getFullYear()
-          : new Date().getFullYear())
-    );
-  }, [startDate]);
-
-  function handleThumbnail(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
-    console.log(file);
-
-    if (file) {
-      setThumbnails(
-        produce((draft) => {
-          draft?.push(file);
-        })
-      );
-    }
-  }
-
   return (
     <div className="flex-wrapper">
       <TitlePage
         title="Tambah Kepala Rumah Baru"
         subTitle={
           <p>
-            Kepala Rumah
+            Kepala Rumah &nbsp;
             <span className="text-dark-green font-medium">
-              / Tambah Kepala Rumah
+              /&nbsp; Tambah Kepala Rumah
             </span>
           </p>
         }
@@ -75,54 +51,37 @@ export default function CreateHeadHouse() {
         <form className="flex-wrapper">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
             <Label customClass="col-span-2" labelFor="village-name">
-              Thumbnail Profile Desa
+              Profile Kepala Rumah
             </Label>
-            <div className="col-span-3 flex-wrapper">
-              <div
-                className={`images ${
-                  thumbnails?.length <= 0 ? "hidden" : "flex-wrapper"
-                }`}
+            <div className="flex items-center justify-between w-full col-span-3">
+              <img
+                src={
+                  imageProfile
+                    ? URL.createObjectURL(imageProfile)
+                    : "/icons/placeholder-upload-profile.svg"
+                }
+                alt=""
+                className="w-[80px] lg:w-[100px] h-[80px] lg:h-[100px] rounded-full object-cover"
+              />
+              <Button
+                variant="black"
+                onClick={() =>
+                  (
+                    document.querySelector(
+                      "#upload-profile-image"
+                    ) as HTMLInputElement
+                  )?.click()
+                }
               >
-                {thumbnails?.map((img, index) => (
-                  <div
-                    key={index}
-                    className="flex justify-between items-center"
-                  >
-                    <img
-                      src={URL.createObjectURL(img)}
-                      alt=""
-                      className="w-[120px] h-[100px] rounded-2xl object-cover"
-                    />
-                    <img
-                      src="/icons/delete-image.svg"
-                      alt=""
-                      className="w-10 lg:w-14 cursor-pointer hover:scale-110 transition-all"
-                      onClick={() => {
-                        setThumbnails(
-                          produce((draft) => {
-                            draft?.splice(index, 1);
-                          })
-                        );
-                      }}
-                    />
-                  </div>
-                ))}
-              </div>
-              <label
-                htmlFor="thumbnail-input"
-                className="px-4 lg:px-6 py-3 lg:py-4 rounded-2xl bg-foreshadow flex items-center gap-3 w-full justify-center cursor-pointer"
-              >
-                <p className="text-dark-green text-center font-semibold text-sm lg:text-base cursor-pointer">
-                  Tambah Gambar Desa
-                </p>
-                <input
-                  onChange={handleThumbnail}
-                  type="file"
-                  id="thumbnail-input"
-                  hidden
-                />
-                <img src="/icons/add-circle.svg" alt="" />
-              </label>
+                <img src="/icons/send-square.svg" alt="" />
+                Upload
+              </Button>
+              <input
+                type="file"
+                hidden
+                id="upload-profile-image"
+                onChange={(e) => setImageProfile(e.target.files?.[0])}
+              />
             </div>
           </div>
 
@@ -137,7 +96,7 @@ export default function CreateHeadHouse() {
                 id="head-name"
                 placeholder="Masukan nama lengkap"
                 isIconLeft={true}
-                icons="/icons/user.svg"
+                icons="/icons/user-gray.svg"
                 type="text"
               />
             </div>
@@ -155,7 +114,7 @@ export default function CreateHeadHouse() {
                 placeholder="Ketik NIK"
                 isIconLeft={true}
                 icons="/icons/keyboard-2.svg"
-                type="text"
+                type="number"
               />
             </div>
           </div>
@@ -172,7 +131,7 @@ export default function CreateHeadHouse() {
                 placeholder="Masukan No. HP yang aktif"
                 isIconLeft={true}
                 icons="/icons/call.svg"
-                type="text"
+                type="number"
               />
             </div>
           </div>
@@ -201,19 +160,31 @@ export default function CreateHeadHouse() {
               Tanggal Lahir
             </Label>
             <div className="col-span-3">
-              <DatePicker
-                selected={startDate}
-                maxDate={new Date()}
-                showYearDropdown
-                scrollableYearDropdown
-                showMonthDropdown
-                yearDropdownItemNumber={100}
-                onChange={(date: Date | null) =>
-                  setStartDate(date ?? new Date())
-                }
-                placeholderText="Masukan tanggal lahir"
-                customInput={<CustomInputDate className="add-date" />}
-              />
+              <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
+                <DatePicker
+                  className="w-full flex-grow"
+                  selected={startDate}
+                  maxDate={new Date()}
+                  showYearDropdown
+                  scrollableYearDropdown
+                  showMonthDropdown
+                  yearDropdownItemNumber={100}
+                  onChange={(date: Date | null) =>
+                    setStartDate(date ?? new Date())
+                  }
+                  placeholderText="Masukan tanggal lahir"
+                  customInput={<CustomInputDate className="w-full" />}
+                />
+
+                <div className="lg:max-w-[180px] w-full p-3 lg:p-4 flex justify-center items-center text-16 font-medium text-dark-green rounded-2xl border border-foreshadow bg-foreshadow">
+                  Umur:{" "}
+                  {new Date().getFullYear() -
+                    (startDate?.getFullYear()
+                      ? startDate?.getFullYear()
+                      : new Date().getFullYear())}{" "}
+                  tahun
+                </div>
+              </div>
             </div>
           </div>
 
@@ -221,15 +192,103 @@ export default function CreateHeadHouse() {
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
             <Label customClass="col-span-2" labelFor="village-total-citizen">
-              Jumlah Penduduk Desa
+              Jenis Kelamin
+            </Label>
+            <div className="col-span-3">
+              <div className="grid grid-cols-2 gap-3 lg:gap-6 ">
+                <label
+                  htmlFor="gender-men"
+                  className="label-radio label-input-radio"
+                >
+                  <div className="flex gap-2">
+                    <input
+                      type="radio"
+                      id="gender-men"
+                      name="head-gender"
+                      className="input-radio-choose-gender"
+                    />
+                    Pria
+                  </div>
+                  <img src="/icons/man.svg" alt="" className="w-5 lg:w-6" />
+                </label>
+                <label
+                  htmlFor="gender-woman"
+                  className="label-radio label-input-radio"
+                >
+                  <div className="flex gap-2">
+                    <input
+                      type="radio"
+                      id="gender-woman"
+                      name="head-gender"
+                      className="input-radio-choose-gender"
+                    />
+                    Wanita
+                  </div>
+                  <img src="/icons/woman.svg" alt="" className="w-5 lg:w-6" />
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
+            <Label customClass="col-span-2" labelFor="village-total-citizen">
+              Status
+            </Label>
+            <div className="col-span-3">
+              <div className="grid grid-cols-1 gap-3 lg:gap-6 lg:grid-cols-2">
+                <label
+                  htmlFor="status-nonmerried"
+                  className="label-radio label-input-radio"
+                >
+                  <div className="flex gap-2">
+                    <input
+                      type="radio"
+                      id="status-nonmerried"
+                      name="head-status"
+                      className="input-radio-choose-gender"
+                    />
+                    Belum Menikah
+                  </div>
+                  <img
+                    src="/icons/nonmerried.svg"
+                    alt=""
+                    className="w-5 lg:w-6"
+                  />
+                </label>
+                <label
+                  htmlFor="status-merried"
+                  className="label-radio label-input-radio"
+                >
+                  <div className="flex gap-2">
+                    <input
+                      type="radio"
+                      id="status-merried"
+                      name="head-status"
+                      className="input-radio-choose-gender"
+                    />
+                    Menikah
+                  </div>
+                  <img src="/icons/merried.svg" alt="" className="w-5 lg:w-6" />
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <hr />
+
+          <h3 className="text-16 font-medium text-black">Akun Dashboard</h3>
+
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
+            <Label customClass="col-span-2" labelFor="head-email">
+              Email Address
             </Label>
             <div className="col-span-3">
               <Inputs
-                id="village-total-citizen"
-                placeholder="Masukan total penduduk desa"
+                id="head-email"
+                placeholder="Masukan Email"
                 isIconLeft={true}
-                icons="/icons/profile-2user.svg"
-                type="text"
+                icons="/icons/sms.svg"
+                type="email"
               />
             </div>
           </div>
@@ -237,15 +296,16 @@ export default function CreateHeadHouse() {
           <hr />
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
-            <Label customClass="col-span-2" labelFor="village-description">
-              Deskripsi Tentang Desa
+            <Label customClass="col-span-2" labelFor="head-pw">
+              Passwords
             </Label>
             <div className="col-span-3">
               <Inputs
-                rows={6}
-                id="village-description"
-                placeholder="Jelaskan lebih detail tentang desa terkait"
-                type="textarea"
+                id="head-pw"
+                placeholder="Masukan Password"
+                isIconLeft={true}
+                icons="/icons/key.svg"
+                type="password"
               />
             </div>
           </div>

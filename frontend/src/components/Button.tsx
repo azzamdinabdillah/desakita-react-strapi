@@ -5,11 +5,13 @@ export default function Button({
   variant,
   customClass,
   onClick,
+  type = "button",
 }: {
   children: ReactNode;
   variant: "black" | "green" | "pink" | "white" | "borderTextBlack";
   customClass?: string;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  type?: "button" | "submit" | "reset" | undefined;
 }) {
   const variantClasses: { [key: string]: string } = {
     black: "bg-black text-white",
@@ -20,6 +22,7 @@ export default function Button({
   };
   return (
     <button
+      type={type}
       onClick={onClick}
       className={`flex cursor-pointer justify-center hover:opacity-80 items-center gap-2.5 py-3 px-4 lg:py-4 lg:px-6 rounded-xl lg:rounded-2xl text-sm lg:text-base font-medium leading-normal ${variantClasses[variant]} ${customClass}`}
     >

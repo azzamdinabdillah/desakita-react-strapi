@@ -34,6 +34,19 @@ hr {
   color: #34613a;
 }
 
+.label-radio:has(.input-radio-choose-gender:checked) {
+  border: 1.5px solid #34613a;
+  color: #001b1a;
+}
+
+.input-radio-choose-gender {
+  @apply accent-[#34613a] lg:w-[18px];
+}
+
+.label-input-radio {
+  @apply flex-grow justify-between cursor-pointer px-4 h-[50px] lg:h-[56px] gap-2 flex border items-center border-[#f2f9f6] rounded-2xl text-[#5a7a7e] text-sm lg:text-base font-medium leading-normal;
+}
+
 .login-right,
 .color-gradient-green {
   background: linear-gradient(210deg, #89b854 1.15%, #042f2b 100%);
@@ -69,4 +82,8 @@ table td:first-child {
 
 table td:last-child {
   @apply rounded-r-2xl lg:rounded-r-3xl;
+}
+
+.react-datepicker-wrapper {
+  @apply w-full;
 }
