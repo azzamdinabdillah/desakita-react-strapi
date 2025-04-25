@@ -1,6 +1,6 @@
 import { produce } from "immer";
 import { Dispatch, SetStateAction, useState } from "react";
-import { useLocation, useNavigate } from "react-router";
+import { NavLink, useLocation, useNavigate } from "react-router";
 
 interface SidebarIF {
   isOpenSidebar: boolean;
@@ -31,9 +31,11 @@ export default function Sidebar({
       subMenu: [
         {
           menu: "List Bansos",
+          link: "/social-donate/list-social-donate",
         },
         {
           menu: "Pengajuan Bansos",
+          link: "/social-donate/applicant-social-donate",
         },
       ],
     },
@@ -44,9 +46,11 @@ export default function Sidebar({
       subMenu: [
         {
           menu: "Pembangunan",
+          link: "/village-schedule/development",
         },
         {
           menu: "Event Desa",
+          link: "/village-schedule/events",
         },
       ],
     },
@@ -103,19 +107,22 @@ export default function Sidebar({
           {menus.map((menu, index) => (
             <div
               onClick={() => {
-                if (menu.subMenu) {
-                  toggleExpanded(menu.menu);
-                } else {
+                if (!menu.subMenu) {
                   navigate(menu.link || "/");
                   setIsOpenSidebar(false);
                 }
               }}
               key={index}
-              className={`menu group hover:bg-foreshadow rounded-2xl cursor-pointer transition-all p-4 text-base text-secondary-text-color font-normal leading-normal ${
+              className={`menu group hover:bg-foreshadow rounded-2xl cursor-pointer transition-all text-base text-secondary-text-color font-normal leading-normal ${
                 location.pathname === menu.link ? "bg-foreshadow" : ""
               }`}
             >
-              <div className="flex justify-between items-center ">
+              <div
+                onClick={() => toggleExpanded(menu.menu)}
+                className={`flex justify-between items-center p-4 ${
+                  menu.subMenu && menu.isExpanded ? "pb-2" : ""
+                }`}
+              >
                 <div className="gap-2 flex items-center">
                   <img src={menu.icon} alt="" />
                   <h3
@@ -142,24 +149,37 @@ export default function Sidebar({
                 <div
                   className={`${
                     menu.isExpanded ? "max-h-96 mt-4" : "max-h-0"
-                  } sub-menu overflow-hidden transition-all ml-3 relative before:absolute before:top-0 before:left-0 before:w-0.5 before:h-[80%] before:bg-[#F2F9F6]`}
+                  } sub-menu overflow-hidden transition-all ml-7 relative before:absolute before:top-0 before:left-0 before:w-0.5 before:h-[70%] before:bg-[#F2F9F6]`}
                 >
-                  <h4 className="p-4 pl-11 relative">
-                    <img
-                      src="/icons/line-sub-menu.svg"
-                      className="absolute left-0 top-1"
-                      alt=""
-                    />
-                    {menu.subMenu[0].menu}
-                  </h4>
-                  <h4 className="p-4 pl-11 pb-0 relative">
-                    <img
-                      src="/icons/line-sub-menu.svg"
-                      className="absolute left-0 top-1"
-                      alt=""
-                    />
-                    {menu.subMenu[1].menu}
-                  </h4>
+                  {menu.subMenu.map((subMenu, index) => (
+                    <NavLink
+                      to={subMenu.link || ""}
+                      onClick={() => setIsOpenSidebar(false)}
+                      className={({ isActive }) =>
+                        isActive ? "inline-block w-full" : ""
+                      }
+                      key={index}
+                    >
+                      {({ isActive }) => (
+                        <div className="relative">
+                          <img
+                            src="/icons/line-sub-menu.svg"
+                            className="absolute left-0 top-1"
+                            alt=""
+                          />
+                          <p
+                            className={`${
+                              isActive
+                                ? "bg-foreshadow font-medium text-dark-green"
+                                : "bg-transparent font-normal text-secondary-text-color"
+                            } py-4 ml-8 pl-4 rounded-2xl`}
+                          >
+                            {subMenu.menu}
+                          </p>
+                        </div>
+                      )}
+                    </NavLink>
+                  ))}
                 </div>
               )}
             </div>
