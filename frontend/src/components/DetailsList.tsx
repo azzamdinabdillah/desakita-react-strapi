@@ -19,7 +19,7 @@ export default function DetailsList({
     <div className={`flex gap-3 items-center ${customClass}`}>
       {icon && <img src={icon} alt="" />}
       {userImage && userImage}
-      <div className="flex flex-col">
+      <div className="flex flex-col lg:gap-0.5">
         <h5
           className={`font-semibold text-black text-base lg:text-[18px] leading-normal break-all ${titleColor}`}
         >

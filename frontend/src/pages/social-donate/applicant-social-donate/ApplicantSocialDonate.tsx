@@ -147,12 +147,22 @@ export default function ApplicantSocialDonate() {
 
                       <div className="w-max lg:w-full flex-grow">
                         <div className="gap-3 flex justify-end">
-                          <Button variant="grayTextRed" customClass="lg:w-[35%]">
+                          <Button
+                            variant="grayTextRed"
+                            customClass="lg:w-[35%]"
+                          >
                             Tolak
                           </Button>
-                          <Button variant="green" customClass="lg:w-[35%]">
-                            Setuju
-                          </Button>
+                          <Link
+                            className="lg:w-[35%]"
+                            to={
+                              "/social-donate/applicant-social-donate/manage-applicant-social-donate"
+                            }
+                          >
+                            <Button variant="green" customClass="w-full">
+                              Setuju
+                            </Button>
+                          </Link>
                         </div>
                       </div>
                     </div>

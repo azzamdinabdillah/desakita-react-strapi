@@ -17,6 +17,7 @@ import ListSocialDonate from "./pages/social-donate/list-social-donate/ListSocia
 import ManageSocialDonate from "./pages/social-donate/list-social-donate/resources/ManageSocialDonate.tsx";
 import CreateSocialDonate from "./pages/social-donate/list-social-donate/resources/CreateSocialDonate.tsx";
 import ApplicantSocialDonate from "./pages/social-donate/applicant-social-donate/ApplicantSocialDonate.tsx";
+import ManageApplicantSocialDonate from "./pages/social-donate/applicant-social-donate/resources/ManageApplicantSocialDonate.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -43,7 +44,7 @@ createRoot(document.getElementById("root")!).render(
               <Route index element={<ApplicantSocialDonate />} />
               <Route
                 path="manage-applicant-social-donate"
-                element={<ManageSocialDonate />}
+                element={<ManageApplicantSocialDonate />}
               />
               <Route
                 path="create-applicant-social-donate"
