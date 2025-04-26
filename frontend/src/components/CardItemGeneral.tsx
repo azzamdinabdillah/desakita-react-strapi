@@ -8,26 +8,34 @@ export default function CardItemGeneral({
   subTitleLeft,
   titleLeft,
   sizeVariant,
+  imgSize,
+  subTitleMaxWidth = "max-w-[150px]",
+  titleMaxWidth = "max-w-[200px]",
 }: {
-  image: string;
+  image?: string;
   title: string | ReactNode;
   subTitle: string | ReactNode;
   right?: ReactNode;
   subTitleLeft?: string | ReactNode;
   titleLeft?: string | ReactNode;
   sizeVariant?: "small" | "medium" | "large";
+  imgSize?: string;
+  subTitleMaxWidth?: string;
+  titleMaxWidth?: string;
 }) {
   return (
     <div className="flex gap-2 lg:gap-3 items-center">
-      <img
-        className={`${
-          sizeVariant === "small"
-            ? "h-[40px] lg:h-[52px]"
-            : "w-[50px] lg:w-[72px]"
-        } rounded-2xl`}
-        src={image}
-        alt=""
-      />
+      {image && (
+        <img
+          className={`${
+            sizeVariant === "small"
+              ? "h-[40px] lg:h-[52px]"
+              : "w-[50px] lg:w-[72px]"
+          } rounded-2xl object-cover ${imgSize}`}
+          src={image}
+          alt=""
+        />
+      )}
       <div
         className={`flex flex-col ${
           sizeVariant === "small" ? "gap-[2px] lg:gap-1" : "gap-1 lg:gap-2"
@@ -42,7 +50,7 @@ export default function CardItemGeneral({
           <h2
             className={`text-black ${
               sizeVariant === "small" ? "text-18" : "text-20"
-            } font-semibold whitespace-nowrap text-ellipsis overflow-hidden max-w-[200px] capitalize lg:max-w-full`}
+            } font-semibold whitespace-nowrap text-ellipsis overflow-hidden ${titleMaxWidth} capitalize lg:max-w-full`}
           >
             {title}
           </h2>
@@ -53,9 +61,11 @@ export default function CardItemGeneral({
           } text-secondary-text-color font-medium`}
         >
           {subTitleLeft && subTitleLeft}
-          <span className="max-w-[150px] lg:max-w-full whitespace-nowrap overflow-hidden text-ellipsis">
+          <div
+            className={`${subTitleMaxWidth} lg:max-w-full whitespace-nowrap overflow-hidden text-ellipsis`}
+          >
             {subTitle}
-          </span>
+          </div>
         </div>
       </div>
       <div className="width-fit">{right}</div>

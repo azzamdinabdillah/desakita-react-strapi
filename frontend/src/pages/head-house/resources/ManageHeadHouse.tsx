@@ -1,4 +1,3 @@
-import { Link } from "react-router";
 import TitlePage from "../../../components/TitlePage";
 import Button from "../../../components/Button";
 import WrapperElement from "../../../layouts/WrapperElement";
@@ -7,9 +6,9 @@ import DetailsList from "../../../components/DetailsList";
 import Title from "../../../components/Title";
 import PeopleCard from "../../../components/PeopleCard";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
-import { ReactNode, useState } from "react";
-import CardItemGeneral from "../../../components/CardItemGeneral";
+import { useState } from "react";
 import Modal from "../../../components/Modal";
+import RecentActivity from "../../../components/RecentActivity";
 
 const headDetail = [
   {
@@ -38,58 +37,6 @@ const headDetail = [
     icon: "/icons/detail-list-nomorhp.svg",
   },
 ];
-
-function RecentActivity({
-  date,
-  mainTitle,
-  title,
-  subTitle,
-  right,
-  image,
-  bottomLeft,
-  bottomRight,
-}: {
-  date: string;
-  mainTitle?: string;
-  title: string;
-  subTitle: string | ReactNode;
-  right?: ReactNode;
-  image: string;
-  bottomLeft?: string;
-  bottomRight?: string;
-}) {
-  return (
-    <div className="gap-4 lg:gap-4 flex-col flex rounded-2xl border border-bg-color p-3 lg:p-4">
-      <div className="flex text-14 font-medium text-secondary-text-color justify-between items-center">
-        <p>{date}</p>
-        <img src="/icons/calendar-2.svg" alt="" />
-      </div>
-
-      <hr />
-
-      {mainTitle && (
-        <h2 className="text-18 font-semibold text-black">{mainTitle}</h2>
-      )}
-
-      <CardItemGeneral
-        sizeVariant="small"
-        image={image}
-        title={title}
-        subTitle={subTitle}
-        right={right}
-      />
-
-      <hr />
-
-      <div className="flex justify-between items-center">
-        <p className="text-14 font-medium text-secondary-text-color">
-          {bottomLeft}
-        </p>
-        <p className="text-16 font-medium text-soft-red">{bottomRight}</p>
-      </div>
-    </div>
-  );
-}
 
 export default function ManageHeadHouse() {
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -371,7 +318,7 @@ export default function ManageHeadHouse() {
                     <hr />
 
                     <DetailsList
-                      colorVariant="greenSecondary"
+                      titleColor="text-dark-green"
                       icon="/icons/calendar-2-bg.svg"
                       title="3 Jan 2025"
                       value="Tanggal Pelaksanaan"
@@ -380,7 +327,7 @@ export default function ManageHeadHouse() {
                     <hr />
 
                     <DetailsList
-                      colorVariant="greenSecondary"
+                      titleColor="text-dark-green"
                       icon="/icons/calendar-2-bg.svg"
                       title="24 Hari"
                       value="Waktu Pelaksanaan"
@@ -411,7 +358,7 @@ export default function ManageHeadHouse() {
                     <hr />
 
                     <DetailsList
-                      colorVariant="greenSecondary"
+                      titleColor="text-dark-green"
                       icon="/icons/calendar-2-bg.svg"
                       title="3 Jan 2025"
                       value="Tanggal Pelaksanaan"
@@ -420,7 +367,7 @@ export default function ManageHeadHouse() {
                     <hr />
 
                     <DetailsList
-                      colorVariant="greenSecondary"
+                      titleColor="text-dark-green"
                       icon="/icons/calendar-2-bg.svg"
                       title="24 Hari"
                       value="Waktu Pelaksanaan"

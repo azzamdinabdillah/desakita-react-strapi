@@ -14,6 +14,9 @@ import ManageHeadHouse from "./pages/head-house/resources/ManageHeadHouse.tsx";
 import CreateHeadHouse from "./pages/head-house/resources/CreateHeadHouse.tsx";
 import "react-datepicker/dist/react-datepicker.css";
 import ListSocialDonate from "./pages/social-donate/list-social-donate/ListSocialDonate.tsx";
+import ManageSocialDonate from "./pages/social-donate/list-social-donate/resources/ManageSocialDonate.tsx";
+import CreateSocialDonate from "./pages/social-donate/list-social-donate/resources/CreateSocialDonate.tsx";
+import ApplicantSocialDonate from "./pages/social-donate/applicant-social-donate/ApplicantSocialDonate.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -25,7 +28,27 @@ createRoot(document.getElementById("root")!).render(
 
           <Route path="/social-donate">
             <Route path="list-social-donate">
-              <Route index element={<ListSocialDonate />}></Route>
+              <Route index element={<ListSocialDonate />} />
+              <Route
+                path="manage-social-donate"
+                element={<ManageSocialDonate />}
+              />
+              <Route
+                path="create-social-donate"
+                element={<CreateSocialDonate />}
+              />
+            </Route>
+
+            <Route path="applicant-social-donate">
+              <Route index element={<ApplicantSocialDonate />} />
+              <Route
+                path="manage-applicant-social-donate"
+                element={<ManageSocialDonate />}
+              />
+              <Route
+                path="create-applicant-social-donate"
+                element={<CreateSocialDonate />}
+              />
             </Route>
           </Route>
 

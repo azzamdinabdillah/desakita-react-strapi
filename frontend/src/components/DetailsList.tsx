@@ -1,31 +1,30 @@
+import { ReactNode } from "react";
+
 export default function DetailsList({
   icon,
   title,
   value,
-  colorVariant = "blackSecondary",
+  titleColor,
+  userImage,
 }: {
-  icon: string;
+  icon?: string;
   title: string;
-  value: string | number;
-  colorVariant?: "greenSecondary" | "blackSecondary";
+  value: string | number | ReactNode;
+  titleColor?: string;
+  userImage?: ReactNode;
 }) {
   return (
     <div className="flex gap-3 items-center">
-      <img src={icon} alt="" />
-      <div className="lg:gap-1 flex flex-col">
+      {icon && <img src={icon} alt="" />}
+      {userImage && userImage}
+      <div className="flex flex-col">
         <h5
-          className={`${
-            colorVariant === "greenSecondary" ? "text-dark-green" : "text-black"
-          } font-semibold text-base lg:text-[18px] leading-normal break-all`}
+          className={`font-semibold text-black text-base lg:text-[18px] leading-normal break-all ${titleColor}`}
         >
           {title}
         </h5>
         <p
-          className={`${
-            colorVariant === "greenSecondary"
-              ? "text-secondary-text-color"
-              : "text-secondary-text-color"
-          } font-semibold text-16 leading-normal`}
+          className={`text-secondary-text-color font-semibold text-16 leading-normal`}
         >
           {value}
         </p>

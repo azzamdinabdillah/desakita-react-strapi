@@ -2,6 +2,8 @@ import { Link } from "react-router";
 import TitlePage from "../../../components/TitlePage";
 import Button from "../../../components/Button";
 import Inputs from "../../../components/Inputs";
+import CardItemGeneral from "../../../components/CardItemGeneral";
+import DetailsList from "../../../components/DetailsList";
 
 export default function ListSocialDonate() {
   return (
@@ -9,7 +11,7 @@ export default function ListSocialDonate() {
       <TitlePage
         title="List Bantuan Sosial"
         leftElement={
-          <Link to={"/head-house/create-head-house"}>
+          <Link to={"/social-donate/list-social-donate/create-social-donate"}>
             <Button variant="green">
               <img className="w-5 lg:w-6" src="/icons/add-square.svg" alt="" />
               Add New
@@ -57,6 +59,96 @@ export default function ListSocialDonate() {
               Filter
             </Button>
           </div>
+        </div>
+
+        <div className="overflow-x-auto w-full mt-1">
+          <table className="border-separate border-spacing-y-[14px] table-auto w-full">
+            {Array.from({ length: 5 }).map((_, index) => (
+              <tr key={index} className="bg-white w-full">
+                <td>
+                  <div className="flex gap-4 lg:gap-6 flex-col w-full">
+                    <div className="flex justify-between items-center flex-wrap gap-4">
+                      <CardItemGeneral
+                        imgSize="w-[70px] lg:w-[100px] h-[60px] lg:h-[80px]"
+                        image="/images/bansos-1.png"
+                        title="Bantuan Untuk Rakyat Kurang Mampu"
+                        subTitleMaxWidth="max-w-[100%]"
+                        titleMaxWidth="max-w-[100%]"
+                        subTitle={
+                          <div className="gap-1 flex items-center w-full">
+                            <img
+                              src="/icons/profile-sm.svg"
+                              alt=""
+                              className="w-3.5 lg:w-4.5"
+                            />
+                            <p className="text-secondary-text-color text-14 font-medium w-full flex-grow">
+                              PT Shaynakit Meningkatkan Bangsa
+                            </p>
+                          </div>
+                        }
+                      />
+
+                      <Link
+                        to={
+                          "/social-donate/list-social-donate/manage-social-donate"
+                        }
+                      >
+                        <Button variant="black">Manage</Button>
+                      </Link>
+                    </div>
+
+                    <hr />
+
+                    <div className="flex items-center w-full gap-6 lg:gap-4 lg:grid grid-cols-3 whitespace-nowrap">
+                      <div className="w-max flex-grow">
+                        <DetailsList
+                          titleColor="text-dark-green"
+                          icon="/icons/money.svg"
+                          title="Rp120.000.000"
+                          value="Uang Tunai"
+                        />
+                      </div>
+
+                      <div className="w-max flex-grow">
+                        <DetailsList
+                          titleColor="text-blue"
+                          icon="/icons/profile-2user-blue-bg.svg"
+                          title="15.600 Warga"
+                          value="Total Pengajuan"
+                        />
+                      </div>
+
+                      <div className="w-max flex-grow">
+                        <DetailsList
+                          titleColor="text-soft-red"
+                          icon="/icons/minus-square-bg.svg"
+                          title="Tidak Tersedia"
+                          value="Status Bansos"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </table>
+        </div>
+
+        <div className="flex gap-3 text-16 font-semibold text-dark-green items-center mt-3 lg:mt-6 justify-center lg:justify-end">
+          <img
+            src="/icons/pagination-right.svg"
+            alt=""
+            className="rotate-180"
+          />
+          {Array.from({ length: 3 }, (_, index) => (
+            <div
+              key={index}
+              className="w-[44px] hover:bg-soft-green hover:text-white transition-all cursor-pointer h-[44px] rounded-full bg-foreshadow flex items-center justify-center"
+            >
+              {index + 1}
+            </div>
+          ))}
+          <img src="/icons/pagination-right.svg" alt="" />
         </div>
       </div>
     </div>

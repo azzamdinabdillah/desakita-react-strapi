@@ -13,7 +13,7 @@ export default function TitlePage({
     <div className="flex justify-between items-center flex-wrap gap-3">
       <div className="gap-1 lg:gap-2 flex flex-col">
         {subTitle && (
-          <div className="text-secondary-text-color font-normal text-sm lg:text-base">
+          <div className="text-secondary-text-color font-normal text-sm lg:text-base capitalize">
             {subTitle}
           </div>
         )}

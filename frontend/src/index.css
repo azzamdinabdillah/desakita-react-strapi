@@ -9,6 +9,7 @@
   --color-yellow: #deff6e;
   --color-soft-green: #8ebd55;
   --color-soft-red: #ff5070;
+  --color-blue: #005caa;
 }
 
 html {
@@ -37,6 +38,7 @@ hr {
 .label-radio:has(.input-radio-choose-gender:checked) {
   border: 1.5px solid #34613a;
   color: #001b1a;
+  background-color: #f1fae6;
 }
 
 .input-radio-choose-gender {
@@ -61,7 +63,7 @@ hr {
 }
 
 .text-20 {
-  @apply text-base lg:text-xl;
+  @apply text-lg lg:text-xl;
 }
 
 .text-18 {
