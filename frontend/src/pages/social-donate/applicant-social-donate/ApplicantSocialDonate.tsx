@@ -5,6 +5,7 @@ import Inputs from "../../../components/Inputs";
 import CardItemGeneral from "../../../components/CardItemGeneral";
 import DetailsList from "../../../components/DetailsList";
 import UserImage from "../../../components/UserImage";
+import DashboardStatus from "../../../components/DashboardStatus";
 
 export default function ApplicantSocialDonate() {
   return (
@@ -68,13 +69,23 @@ export default function ApplicantSocialDonate() {
               <tr key={index} className="bg-white w-full">
                 <td>
                   <div className="flex gap-4 lg:gap-6 flex-col w-full">
+                    <div className="flex justify-between items-center">
+                      <div className="flex text-14 font-medium text-secondary-text-color items-center gap-1">
+                        <img src="/icons/calendar-2.svg" alt="" />
+                        <p>Tue, 09 Jan 2025 </p>
+                      </div>
+
+                      <DashboardStatus title="Menunggu" type="Menunggu" />
+                    </div>
+
+                    <hr />
                     <div className="flex justify-between items-center flex-wrap gap-4">
                       <CardItemGeneral
                         imgSize="w-[70px] lg:w-[100px] h-[60px] lg:h-[80px]"
                         image="/images/bansos-1.png"
                         title="Peduli Sesama: Penyaluran Beras untuk Warga Desa"
                         subTitleMaxWidth="max-w-[100%]"
-                        titleMaxWidth="max-w-[400px]"
+                        titleMaxWidth="max-w-[200px]"
                         subTitle={
                           <div className="gap-1 flex items-center w-full">
                             <img
@@ -89,13 +100,12 @@ export default function ApplicantSocialDonate() {
                         }
                       />
 
-                      <Link
-                        to={
-                          "/social-donate/list-social-donate/manage-social-donate"
-                        }
-                      >
-                        <Button variant="black">Manage</Button>
-                      </Link>
+                      <DetailsList
+                        customClass="flex-row-reverse"
+                        icon="/icons/money.svg"
+                        title="Rp120.000.000"
+                        value="Uang Tunai"
+                      />
                     </div>
 
                     <hr />
@@ -137,10 +147,10 @@ export default function ApplicantSocialDonate() {
 
                       <div className="w-max lg:w-full flex-grow">
                         <div className="gap-3 flex justify-end">
-                          <Button variant="grayTextRed" customClass="w-[35%]">
+                          <Button variant="grayTextRed" customClass="lg:w-[35%]">
                             Tolak
                           </Button>
-                          <Button variant="green" customClass="w-[35%]">
+                          <Button variant="green" customClass="lg:w-[35%]">
                             Setuju
                           </Button>
                         </div>

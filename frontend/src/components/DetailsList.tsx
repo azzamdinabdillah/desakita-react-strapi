@@ -6,15 +6,17 @@ export default function DetailsList({
   value,
   titleColor,
   userImage,
+  customClass,
 }: {
   icon?: string;
   title: string;
   value: string | number | ReactNode;
   titleColor?: string;
   userImage?: ReactNode;
+  customClass?: string;
 }) {
   return (
-    <div className="flex gap-3 items-center">
+    <div className={`flex gap-3 items-center ${customClass}`}>
       {icon && <img src={icon} alt="" />}
       {userImage && userImage}
       <div className="flex flex-col">
@@ -24,7 +26,9 @@ export default function DetailsList({
           {title}
         </h5>
         <p
-          className={`text-secondary-text-color font-semibold text-16 leading-normal`}
+          className={`text-secondary-text-color font-semibold text-16 leading-normal ${
+            customClass === "flex-row-reverse" ? "text-end" : ""
+          }`}
         >
           {value}
         </p>
