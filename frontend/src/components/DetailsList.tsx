@@ -4,7 +4,7 @@ export default function DetailsList({
   icon,
   title,
   value,
-  titleColor,
+  titleColor = "text-black",
   userImage,
   customClass,
 }: {
@@ -21,7 +21,7 @@ export default function DetailsList({
       {userImage && userImage}
       <div className="flex flex-col lg:gap-0.5">
         <h5
-          className={`font-semibold text-black text-base lg:text-[18px] leading-normal break-all ${titleColor}`}
+          className={`font-semibold text-base lg:text-[18px] leading-normal break-all ${titleColor}`}
         >
           {title}
         </h5>

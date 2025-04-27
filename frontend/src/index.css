@@ -10,6 +10,7 @@
   --color-soft-green: #8ebd55;
   --color-soft-red: #ff5070;
   --color-blue: #005caa;
+  --color-aksen: #fbad48;
 }
 
 html {
@@ -88,4 +89,8 @@ table td:last-child {
 
 .react-datepicker-wrapper {
   @apply w-full;
+}
+
+.tabpanel:not(.react-tabs__tab-panel--selected) {
+  display: none;
 }

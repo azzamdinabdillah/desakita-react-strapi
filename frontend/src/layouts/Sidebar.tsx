@@ -46,7 +46,7 @@ export default function Sidebar({
       subMenu: [
         {
           menu: "Pembangunan",
-          link: "/village-schedule/development",
+          link: "/village-schedule/village-development-schedule",
         },
         {
           menu: "Event Desa",

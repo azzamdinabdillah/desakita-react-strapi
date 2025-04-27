@@ -1,13 +1,19 @@
+import { ReactNode } from "react";
+
 export default function Title({
   icon,
   title,
   subTitle,
   subTitleSizeVariant = "medium",
+  right,
+  customClass,
 }: {
+  right?: ReactNode;
   icon?: string;
   title?: string;
   subTitle: string;
   subTitleSizeVariant?: "small" | "medium" | "large";
+  customClass?: string;
 }) {
   const subTitleSizeClass: { [key: string]: string } = {
     small: "text-14",
@@ -15,7 +21,7 @@ export default function Title({
   };
 
   return (
-    <div className="flex justify-between items-center">
+    <div className={`flex justify-between items-center ${customClass}`}>
       <div className="lg:gap-1.5 flex flex-col">
         {title && (
           <h2 className="text-2xl lg:text-3xl text-black font-semibold">
@@ -29,7 +35,7 @@ export default function Title({
         </h3>
       </div>
 
-      {icon && <img src={icon} alt="" className="w-11 lg:w-[56px]" />}
+      {icon ? <img src={icon} alt="" className="w-11 lg:w-[56px]" /> : right}
     </div>
   );
 }
