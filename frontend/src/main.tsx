@@ -20,6 +20,7 @@ import ApplicantSocialDonate from "./pages/social-donate/applicant-social-donate
 import ManageApplicantSocialDonate from "./pages/social-donate/applicant-social-donate/resources/ManageApplicantSocialDonate.tsx";
 import VillageDevelopmentSchedule from "./pages/village-schedule/development/VillageDevelopmentSchedule.tsx";
 import ManageVillageDevelopmentSchedule from "./pages/village-schedule/development/resources/ManageVillageDevelopmentSchedule.tsx";
+import CreateVillageDevelopmentSchedule from "./pages/village-schedule/development/resources/CreateVillageDevelopmentSchedule.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -61,6 +62,10 @@ createRoot(document.getElementById("root")!).render(
               <Route
                 path="manage-village-development-schedule"
                 element={<ManageVillageDevelopmentSchedule />}
+              />
+              <Route
+                path="create-village-development-schedule"
+                element={<CreateVillageDevelopmentSchedule />}
               />
             </Route>
           </Route>

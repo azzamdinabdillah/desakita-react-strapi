@@ -300,7 +300,10 @@ export default function ManageVillageDevelopmentSchedule() {
                   </div>
 
                   <div className="w-full flex-grow">
-                    <Button variant="black" customClass="w-full lg:w-[70%] ml-auto">
+                    <Button
+                      variant="black"
+                      customClass="w-full lg:w-[70%] ml-auto"
+                    >
                       Manage
                     </Button>
                   </div>
@@ -361,12 +364,17 @@ export default function ManageVillageDevelopmentSchedule() {
                   </div>
 
                   <div className="w-full flex-grow">
-                    <Button variant="black" customClass="w-full lg:w-[70%] ml-auto">
+                    <Button
+                      variant="black"
+                      customClass="w-full lg:w-[70%] ml-auto"
+                    >
                       Manage
                     </Button>
                   </div>
                 </div>
               </div>
+
+              <Button variant="green">Lihat Semua</Button>
             </TabPanel>
 
             <TabPanel className="tabpanel gap-4 flex flex-col lg:gap-6">
@@ -443,6 +451,8 @@ export default function ManageVillageDevelopmentSchedule() {
                   </div>
                 </div>
               ))}
+
+              <Button variant="green">Lihat Semua</Button>
             </TabPanel>
 
             <TabPanel className="tabpanel gap-4 flex flex-col lg:gap-6">
@@ -504,13 +514,18 @@ export default function ManageVillageDevelopmentSchedule() {
                     </div>
 
                     <div className="w-full flex-grow">
-                      <Button variant="black" customClass="w-full lg:w-[70%] ml-auto">
+                      <Button
+                        variant="black"
+                        customClass="w-full lg:w-[70%] ml-auto"
+                      >
                         Manage
                       </Button>
                     </div>
                   </div>
                 </div>
               ))}
+
+              <Button variant="green">Lihat Semua</Button>
             </TabPanel>
 
             <TabPanel className="tabpanel gap-4 flex flex-col lg:gap-6">
@@ -572,13 +587,18 @@ export default function ManageVillageDevelopmentSchedule() {
                     </div>
 
                     <div className="w-full flex-grow">
-                      <Button variant="black" customClass="w-full lg:w-[70%] ml-auto">
+                      <Button
+                        variant="black"
+                        customClass="w-full lg:w-[70%] ml-auto"
+                      >
                         Manage
                       </Button>
                     </div>
                   </div>
                 </div>
               ))}
+
+              <Button variant="green">Lihat Semua</Button>
             </TabPanel>
           </WrapperElement>
         </Tabs>

@@ -1,9 +1,13 @@
+import { ReactNode } from "react";
+
 interface InputComponentIF {
   type: "text" | "number" | "email" | "password" | "file" | "textarea" | "date";
   placeholder: string;
   icons?: string;
+  iconsRight?: string;
   isIconLeft?: boolean;
   isIconRight?: boolean;
+  right?: string | ReactNode;
   customClass?: string;
   id?: string;
   rows?: number;
@@ -24,6 +28,7 @@ export default function Inputs({
   id,
   placeholder,
   icons,
+  iconsRight,
   isIconLeft,
   isIconRight,
   customClass,
@@ -32,6 +37,7 @@ export default function Inputs({
   ref,
   onChange,
   readonly,
+  right,
 }: InputComponentIF) {
   const inputClass = `${
     icons ? "pl-11 lg:pl-12" : ""
@@ -69,10 +75,16 @@ export default function Inputs({
           placeholder={placeholder}
         />
       )}
-      {isIconRight && (
+      {isIconRight ? (
         <div className="absolute right-4 top-1/2 -translate-y-1/2 w-5 lg:w-6">
-          <img src={icons} alt="icons" />
+          <img src={iconsRight} alt="icons" />
         </div>
+      ) : (
+        right && (
+          <div className="absolute right-4 top-1/2 -translate-y-1/2">
+            {right}
+          </div>
+        )
       )}
     </div>
   );
