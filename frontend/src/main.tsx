@@ -22,6 +22,7 @@ import CreateVillageDevelopmentSchedule from "./pages/village-schedule/developme
 import VillageEventSchedule from "./pages/village-schedule/event/VillageEventSchedule.tsx";
 import ManageVillageEventSchedule from "./pages/village-schedule/event/resources/ManageVillageEventSchedule.tsx";
 import CreateVillageEventSchedule from "./pages/village-schedule/event/resources/CreateVillageEventSchedule.tsx";
+import SearchResult from "./pages/SearchResult.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -29,6 +30,7 @@ createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<DashboardLayout />}>
+          <Route path="/search-result" element={<SearchResult />} />
           <Route index element={<Dashboard />} />
 
           <Route path="/social-donate">

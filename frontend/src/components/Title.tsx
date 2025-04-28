@@ -11,13 +11,14 @@ export default function Title({
   right?: ReactNode;
   icon?: string;
   title?: string;
-  subTitle: string;
+  subTitle?: string;
   subTitleSizeVariant?: "small" | "medium" | "large";
   customClass?: string;
 }) {
   const subTitleSizeClass: { [key: string]: string } = {
     small: "text-14",
     medium: "text-16",
+    large: "text-xl lg:text-2xl",
   };
 
   return (
