@@ -13,7 +13,7 @@ export default function VillageEventSchedule() {
         leftElement={
           <Link
             to={
-              "/village-schedule/village-development-schedule/create-village-development-schedule"
+              "/village-schedule/village-event-schedule/create-village-event-schedule"
             }
           >
             <Button variant="green">

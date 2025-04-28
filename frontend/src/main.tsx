@@ -21,6 +21,7 @@ import ManageVillageDevelopmentSchedule from "./pages/village-schedule/developme
 import CreateVillageDevelopmentSchedule from "./pages/village-schedule/development/resources/CreateVillageDevelopmentSchedule.tsx";
 import VillageEventSchedule from "./pages/village-schedule/event/VillageEventSchedule.tsx";
 import ManageVillageEventSchedule from "./pages/village-schedule/event/resources/ManageVillageEventSchedule.tsx";
+import CreateVillageEventSchedule from "./pages/village-schedule/event/resources/CreateVillageEventSchedule.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -76,8 +77,8 @@ createRoot(document.getElementById("root")!).render(
                 element={<ManageVillageEventSchedule />}
               />
               <Route
-                path="create-village-development-schedule"
-                element={<CreateVillageDevelopmentSchedule />}
+                path="create-village-event-schedule"
+                element={<CreateVillageEventSchedule />}
               />
             </Route>
           </Route>
