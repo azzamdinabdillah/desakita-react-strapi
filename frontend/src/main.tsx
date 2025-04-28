@@ -2,9 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router";
-import VillageProfile, {
-  VillageProfileEmpty,
-} from "./pages/village-profile/VillageProfile.tsx";
+import VillageProfile from "./pages/village-profile/VillageProfile.tsx";
 import Dashboard from "./pages/dashboard/Dashboard.tsx";
 import DashboardLayout from "./pages/DashboardLayout.tsx";
 import CreateVillageProfile from "./pages/village-profile/resources/CreateVillageProfile.tsx";
@@ -21,6 +19,8 @@ import ManageApplicantSocialDonate from "./pages/social-donate/applicant-social-
 import VillageDevelopmentSchedule from "./pages/village-schedule/development/VillageDevelopmentSchedule.tsx";
 import ManageVillageDevelopmentSchedule from "./pages/village-schedule/development/resources/ManageVillageDevelopmentSchedule.tsx";
 import CreateVillageDevelopmentSchedule from "./pages/village-schedule/development/resources/CreateVillageDevelopmentSchedule.tsx";
+import VillageEventSchedule from "./pages/village-schedule/event/VillageEventSchedule.tsx";
+import ManageVillageEventSchedule from "./pages/village-schedule/event/resources/ManageVillageEventSchedule.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -62,6 +62,18 @@ createRoot(document.getElementById("root")!).render(
               <Route
                 path="manage-village-development-schedule"
                 element={<ManageVillageDevelopmentSchedule />}
+              />
+              <Route
+                path="create-village-development-schedule"
+                element={<CreateVillageDevelopmentSchedule />}
+              />
+            </Route>
+
+            <Route path="village-event-schedule">
+              <Route index element={<VillageEventSchedule />} />
+              <Route
+                path="manage-village-event-schedule"
+                element={<ManageVillageEventSchedule />}
               />
               <Route
                 path="create-village-development-schedule"

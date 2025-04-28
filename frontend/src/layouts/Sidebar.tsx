@@ -50,7 +50,7 @@ export default function Sidebar({
         },
         {
           menu: "Event Desa",
-          link: "/village-schedule/events",
+          link: "/village-schedule/village-event-schedule",
         },
       ],
     },
