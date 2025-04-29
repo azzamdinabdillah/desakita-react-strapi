@@ -24,6 +24,8 @@ import ManageVillageEventSchedule from "./pages/head-village/village-schedule/ev
 import CreateVillageEventSchedule from "./pages/head-village/village-schedule/event/resources/CreateVillageEventSchedule.tsx";
 import SearchResult from "./pages/head-village/SearchResult.tsx";
 
+import DashboardFamily from "./pages/head-family/dashboard/Dashboard.tsx";
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
@@ -98,6 +100,13 @@ createRoot(document.getElementById("root")!).render(
               element={<CreateVillageProfile />}
             />
           </Route>
+        </Route>
+
+        <Route
+          path="/head-family"
+          element={<DashboardLayout role="head-family" />}
+        >
+          <Route index element={<DashboardFamily />} />
         </Route>
       </Routes>
     </BrowserRouter>
