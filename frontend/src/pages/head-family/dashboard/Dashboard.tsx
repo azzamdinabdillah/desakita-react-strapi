@@ -191,8 +191,8 @@ export default function Dashboard() {
   return (
     <div className="gap-3.5 flex flex-col">
       <TitlePage title="Rumah Tangga Stats" />
-      <div className="grid grid-cols-1 lg:grid-cols-7 gap-3">
-        <div className="flex flex-col gap-3.5 lg:col-span-3">
+      <div className="grid grid-cols-1 md:grid-cols-7 gap-3">
+        <div className="flex flex-col gap-3.5 md:col-span-3">
           <div className="gap-6 flex flex-col color-gradient-green p-6 lg:p-6 rounded-2xl w-full">
             <img src="/icons/picture.svg" alt="" className="w-fit" />
             <div className="flex flex-col gap-3">
@@ -311,7 +311,7 @@ export default function Dashboard() {
           </WrapperElement>
         </div>
 
-        <div className="flex flex-col gap-3.5 lg:col-span-4">
+        <div className="flex flex-col gap-3.5 md:col-span-4">
           <WrapperElement>
             <Title
               subTitle="Anggota Keluarga"
