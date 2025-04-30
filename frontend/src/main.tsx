@@ -27,6 +27,7 @@ import SearchResult from "./pages/head-village/SearchResult.tsx";
 import DashboardFamily from "./pages/head-family/dashboard/Dashboard.tsx";
 import FamilyMember from "./pages/head-family/family-member/FamilyMember.tsx";
 import ManageFamilyMember from "./pages/head-family/family-member/resources/ManageFamilyMember.tsx";
+import CreateFamilyMember from "./pages/head-family/family-member/resources/CreateFamilyMember.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -115,6 +116,10 @@ createRoot(document.getElementById("root")!).render(
             <Route
               path="manage-family-member"
               element={<ManageFamilyMember />}
+            />
+            <Route
+              path="create-family-member"
+              element={<CreateFamilyMember />}
             />
           </Route>
         </Route>

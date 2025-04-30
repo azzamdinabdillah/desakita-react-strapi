@@ -11,7 +11,7 @@ export default function FamilyMember() {
       <TitlePage
         title="Anggota Keluarga"
         leftElement={
-          <Link to={"/head-house/create-head-house"}>
+          <Link to={"/head-family/family-member/create-family-member"}>
             <Button variant="green">
               <img className="w-5 md:w-6" src="/icons/add-square.svg" alt="" />
               Add New
