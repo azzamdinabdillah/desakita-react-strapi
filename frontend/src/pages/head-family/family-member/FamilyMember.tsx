@@ -56,7 +56,7 @@ export default function FamilyMember() {
             </div>
 
             <Link
-              to={"/head-house/manage-head-house"}
+              to={"/head-family/family-member/manage-family-member"}
               className="w-full md:w-max"
             >
               <Button variant="black" customClass="w-full">
@@ -103,7 +103,7 @@ export default function FamilyMember() {
             </div>
 
             <Link
-              to={"/head-house/manage-head-house"}
+              to={"/head-family/family-member/manage-family-member"}
               className="w-full md:w-max"
             >
               <Button variant="black" customClass="w-full">
@@ -154,7 +154,7 @@ export default function FamilyMember() {
               </div>
 
               <Link
-                to={"/head-house/manage-head-house"}
+                to={"/head-family/family-member/manage-family-member"}
                 className="w-full md:w-max"
               >
                 <Button variant="black" customClass="w-full">

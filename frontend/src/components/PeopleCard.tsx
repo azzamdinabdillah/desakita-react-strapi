@@ -18,7 +18,7 @@ export default function PeopleCard({
       </div>
 
       <div className="flex flex-col gap-1 lg:gap-[6px] flex-grow">
-        <h3 className="text-base lg:text-[18px] font-semibold text-black">
+        <h3 className="text-base lg:text-[18px] font-semibold text-black whitespace-nowrap text-ellipsis overflow-hidden max-w-[120px] sm:max-w-full">
           {name}
         </h3>
         <div className="flex items-center gap-1">
