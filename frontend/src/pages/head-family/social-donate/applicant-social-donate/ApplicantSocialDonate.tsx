@@ -65,78 +65,86 @@ export default function ApplicantSocialDonate() {
 
         <div className="overflow-x-auto w-full mt-1">
           <table className="border-separate border-spacing-y-[14px] table-auto w-full">
-            {Array.from({ length: 5 }).map((_, index) => (
-              <tr key={index} className="bg-white w-full">
-                <td>
-                  <div className="flex gap-4 lg:gap-6 flex-col w-full">
-                    <div className="flex justify-between items-center">
-                      <div className="flex text-14 font-medium text-secondary-text-color items-center gap-1">
-                        <img src="/icons/calendar-2.svg" alt="" />
-                        <p>Tue, 09 Jan 2025 </p>
+            <tbody>
+              {Array.from({ length: 5 }).map((_, index) => (
+                <tr key={index} className="bg-white w-full">
+                  <td>
+                    <div className="flex gap-4 lg:gap-6 flex-col w-full">
+                      <div className="flex justify-between items-center">
+                        <div className="flex text-14 font-medium text-secondary-text-color items-center gap-1">
+                          <img src="/icons/calendar-2.svg" alt="" />
+                          <p>Tue, 09 Jan 2025 </p>
+                        </div>
+
+                        <DashboardStatus title="Diterima" type="Diterima" />
                       </div>
 
-                      <DashboardStatus title="Diterima" type="Diterima" />
-                    </div>
-
-                    <hr />
-                    <div className="flex justify-between items-center flex-wrap gap-4">
-                      <CardItemGeneral
-                        imgSize="w-[70px] lg:w-[100px] h-[60px] lg:h-[80px]"
-                        image="/images/beras.png"
-                        title="Peduli Sesama: Penyaluran Beras untuk Warga Desa"
-                        subTitleMaxWidth="max-w-[100%]"
-                        titleMaxWidth="max-w-[200px]"
-                        subTitle={
-                          <div className="gap-1 flex items-center w-full">
-                            <img
-                              src="/icons/profile-sm.svg"
-                              alt=""
-                              className="w-3.5 lg:w-4.5"
-                            />
-                            <p className="text-secondary-text-color text-14 font-medium w-full flex-grow">
-                              PT Shaynakit Meningkatkan Bangsa
-                            </p>
-                          </div>
-                        }
-                      />
-
-                      <Button variant="black">Lihat Detail</Button>
-                    </div>
-
-                    <hr />
-
-                    <div className="flex items-center w-full gap-6 lg:gap-4 lg:grid grid-cols-3 whitespace-nowrap">
-                      <div className="w-max flex-grow">
-                        <DetailsList
-                          titleColor="text-dark-green"
-                          icon="/icons/bag-2.svg"
-                          title="Beras 20 Ton"
-                          value="Bahan Pokok"
+                      <hr />
+                      <div className="flex justify-between items-center flex-wrap gap-4">
+                        <CardItemGeneral
+                          imgSize="w-[70px] lg:w-[100px] h-[60px] lg:h-[80px]"
+                          image="/images/beras.png"
+                          title="Peduli Sesama: Penyaluran Beras untuk Warga Desa"
+                          subTitleMaxWidth="max-w-[100%]"
+                          titleMaxWidth="max-w-[200px]"
+                          subTitle={
+                            <div className="gap-1 flex items-center w-full">
+                              <img
+                                src="/icons/profile-sm.svg"
+                                alt=""
+                                className="w-3.5 lg:w-4.5"
+                              />
+                              <p className="text-secondary-text-color text-14 font-medium w-full flex-grow">
+                                PT Shaynakit Meningkatkan Bangsa
+                              </p>
+                            </div>
+                          }
                         />
+
+                        <Link
+                          to={
+                            "/head-family/social-donate/applicant-social-donate/details-applicant-social-donate"
+                          }
+                        >
+                          <Button variant="black">Lihat Detail</Button>
+                        </Link>
                       </div>
 
-                      <div className="w-max flex-grow">
-                        <DetailsList
-                          titleColor="text-dark-green"
-                          icon="/icons/send-square-2.svg"
-                          title="10 Ton"
-                          value="Bansos Tersisa"
-                        />
-                      </div>
+                      <hr />
 
-                      <div className="w-max flex-grow">
-                        <DetailsList
-                          titleColor="text-dark-green"
-                          icon="/icons/receive-square-2.svg"
-                          title="2 Ton"
-                          value="Nominal Pengajuan"
-                        />
+                      <div className="flex items-center w-full gap-6 lg:gap-4 lg:grid grid-cols-3 whitespace-nowrap">
+                        <div className="w-max flex-grow">
+                          <DetailsList
+                            titleColor="text-dark-green"
+                            icon="/icons/bag-2.svg"
+                            title="Beras 20 Ton"
+                            value="Bahan Pokok"
+                          />
+                        </div>
+
+                        <div className="w-max flex-grow">
+                          <DetailsList
+                            titleColor="text-dark-green"
+                            icon="/icons/send-square-2.svg"
+                            title="10 Ton"
+                            value="Bansos Tersisa"
+                          />
+                        </div>
+
+                        <div className="w-max flex-grow">
+                          <DetailsList
+                            titleColor="text-dark-green"
+                            icon="/icons/receive-square-2.svg"
+                            title="2 Ton"
+                            value="Nominal Pengajuan"
+                          />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </td>
-              </tr>
-            ))}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
           </table>
         </div>
 

@@ -1,13 +1,13 @@
 import { useState } from "react";
-import Button from "../../../../../components/Button";
-import Modal from "../../../../../components/Modal";
-import TitlePage from "../../../../../components/TitlePage";
-import WrapperElement from "../../../../../layouts/WrapperElement";
-import Title from "../../../../../components/Title";
-import DashboardStatus from "../../../../../components/DashboardStatus";
-import DetailsList from "../../../../../components/DetailsList";
-import Label from "../../../../../components/Label";
-import Inputs from "../../../../../components/Inputs";
+import Button from "../../../../components/Button";
+import Modal from "../../../../components/Modal";
+import TitlePage from "../../../../components/TitlePage";
+import WrapperElement from "../../../../layouts/WrapperElement";
+import Title from "../../../../components/Title";
+import DashboardStatus from "../../../../components/DashboardStatus";
+import DetailsList from "../../../../components/DetailsList";
+import Label from "../../../../components/Label";
+import Inputs from "../../../../components/Inputs";
 
 const banks = [
   {
@@ -24,7 +24,7 @@ const banks = [
   },
 ];
 
-export default function ManageSocialDonate() {
+export default function DetailsSocialDonate() {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [expandBank, setExpandBank] = useState(false);
 
@@ -186,7 +186,11 @@ export default function ManageSocialDonate() {
                     >
                       <div className="flex gap-2 items-center flex-wrap">
                         <div className="py-3 w-[70px] h-[40px] lg:w-[120px] lg:h-[60px] bg-blue/[0.05] rounded-2xl flex justify-center items-center">
-                          <img src={bank.image} alt="" className="w-[70%] lg:w-unset" />
+                          <img
+                            src={bank.image}
+                            alt=""
+                            className="w-[70%] lg:w-unset"
+                          />
                         </div>
                         <p className="text-16 font-medium text-black">
                           {bank.name}

@@ -14,7 +14,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import ListSocialDonate from "./pages/head-village/social-donate/list-social-donate/ListSocialDonate.tsx";
 import ListSocialDonateHeadFamily from "./pages/head-family/social-donate/list-social-donate/ListSocialDonate.tsx";
 import ManageSocialDonate from "./pages/head-village/social-donate/list-social-donate/resources/ManageSocialDonate.tsx";
-import ManageSocialDonateHeadFamily from "./pages/head-family/social-donate/list-social-donate/resources/ManageSocialDonate.tsx";
 import CreateSocialDonate from "./pages/head-village/social-donate/list-social-donate/resources/CreateSocialDonate.tsx";
 import ApplicantSocialDonate from "./pages/head-village/social-donate/applicant-social-donate/ApplicantSocialDonate.tsx";
 import ApplicantSocialDonateHeadFamily from "./pages/head-family/social-donate/applicant-social-donate/ApplicantSocialDonate.tsx";
@@ -31,6 +30,8 @@ import DashboardFamily from "./pages/head-family/dashboard/Dashboard.tsx";
 import FamilyMember from "./pages/head-family/family-member/FamilyMember.tsx";
 import ManageFamilyMember from "./pages/head-family/family-member/resources/ManageFamilyMember.tsx";
 import CreateFamilyMember from "./pages/head-family/family-member/resources/CreateFamilyMember.tsx";
+import DetailsSocialDonate from "./pages/head-family/social-donate/list-social-donate/DetailsSocialDonate.tsx";
+import DetailsApplicantSocialDonate from "./pages/head-family/social-donate/applicant-social-donate/DetailsApplicantSocialDonate.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -130,16 +131,16 @@ createRoot(document.getElementById("root")!).render(
             <Route path="list-social-donate">
               <Route index element={<ListSocialDonateHeadFamily />} />
               <Route
-                path="manage-social-donate"
-                element={<ManageSocialDonateHeadFamily />}
+                path="details-social-donate"
+                element={<DetailsSocialDonate />}
               />
             </Route>
 
             <Route path="applicant-social-donate">
               <Route index element={<ApplicantSocialDonateHeadFamily />} />
               <Route
-                path="manage-applicant-social-donate"
-                element={<ManageApplicantSocialDonate />}
+                path="details-applicant-social-donate"
+                element={<DetailsApplicantSocialDonate />}
               />
             </Route>
           </Route>
