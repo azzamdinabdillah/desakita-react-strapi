@@ -31,7 +31,7 @@ export default function SidebarHeadFamily({
       subMenu: [
         {
           menu: "List Bansos",
-          link: "/social-donate/list-social-donate",
+          link: "/head-family/social-donate/list-social-donate",
         },
         {
           menu: "Pengajuan Bansos",
@@ -105,8 +105,6 @@ export default function SidebarHeadFamily({
           </h2>
 
           {menus.map((menu, index) => {
-            console.log("menu link", menu.link);
-
             return (
               <div
                 onClick={() => {
