@@ -186,7 +186,7 @@ export default function ManageSocialDonate() {
                     >
                       <div className="flex gap-2 items-center flex-wrap">
                         <div className="py-3 w-[70px] h-[40px] lg:w-[120px] lg:h-[60px] bg-blue/[0.05] rounded-2xl flex justify-center items-center">
-                          <img src={bank.image} alt="" className="w-[70%] lg:w-full" />
+                          <img src={bank.image} alt="" className="w-[70%] lg:w-unset" />
                         </div>
                         <p className="text-16 font-medium text-black">
                           {bank.name}
