@@ -17,6 +17,7 @@ import ManageSocialDonate from "./pages/head-village/social-donate/list-social-d
 import ManageSocialDonateHeadFamily from "./pages/head-family/social-donate/list-social-donate/resources/ManageSocialDonate.tsx";
 import CreateSocialDonate from "./pages/head-village/social-donate/list-social-donate/resources/CreateSocialDonate.tsx";
 import ApplicantSocialDonate from "./pages/head-village/social-donate/applicant-social-donate/ApplicantSocialDonate.tsx";
+import ApplicantSocialDonateHeadFamily from "./pages/head-family/social-donate/applicant-social-donate/ApplicantSocialDonate.tsx";
 import ManageApplicantSocialDonate from "./pages/head-village/social-donate/applicant-social-donate/resources/ManageApplicantSocialDonate.tsx";
 import VillageDevelopmentSchedule from "./pages/head-village/village-schedule/development/VillageDevelopmentSchedule.tsx";
 import ManageVillageDevelopmentSchedule from "./pages/head-village/village-schedule/development/resources/ManageVillageDevelopmentSchedule.tsx";
@@ -132,21 +133,13 @@ createRoot(document.getElementById("root")!).render(
                 path="manage-social-donate"
                 element={<ManageSocialDonateHeadFamily />}
               />
-              <Route
-                path="create-social-donate"
-                element={<CreateSocialDonate />}
-              />
             </Route>
 
             <Route path="applicant-social-donate">
-              <Route index element={<ApplicantSocialDonate />} />
+              <Route index element={<ApplicantSocialDonateHeadFamily />} />
               <Route
                 path="manage-applicant-social-donate"
                 element={<ManageApplicantSocialDonate />}
-              />
-              <Route
-                path="create-applicant-social-donate"
-                element={<CreateSocialDonate />}
               />
             </Route>
           </Route>

@@ -35,7 +35,7 @@ export default function SidebarHeadFamily({
         },
         {
           menu: "Pengajuan Bansos",
-          link: "/social-donate/applicant-social-donate",
+          link: "/head-family/social-donate/applicant-social-donate",
         },
       ],
     },
