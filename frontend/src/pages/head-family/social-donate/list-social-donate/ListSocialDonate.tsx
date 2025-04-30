@@ -91,7 +91,7 @@ export default function ListSocialDonate() {
 
                         <Link
                           to={
-                            "/social-donate/list-social-donate/manage-social-donate"
+                            "/head-family/social-donate/list-social-donate/manage-social-donate"
                           }
                         >
                           <Button variant="black">Lihat Detail</Button>

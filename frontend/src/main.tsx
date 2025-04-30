@@ -14,6 +14,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import ListSocialDonate from "./pages/head-village/social-donate/list-social-donate/ListSocialDonate.tsx";
 import ListSocialDonateHeadFamily from "./pages/head-family/social-donate/list-social-donate/ListSocialDonate.tsx";
 import ManageSocialDonate from "./pages/head-village/social-donate/list-social-donate/resources/ManageSocialDonate.tsx";
+import ManageSocialDonateHeadFamily from "./pages/head-family/social-donate/list-social-donate/resources/ManageSocialDonate.tsx";
 import CreateSocialDonate from "./pages/head-village/social-donate/list-social-donate/resources/CreateSocialDonate.tsx";
 import ApplicantSocialDonate from "./pages/head-village/social-donate/applicant-social-donate/ApplicantSocialDonate.tsx";
 import ManageApplicantSocialDonate from "./pages/head-village/social-donate/applicant-social-donate/resources/ManageApplicantSocialDonate.tsx";
@@ -129,7 +130,7 @@ createRoot(document.getElementById("root")!).render(
               <Route index element={<ListSocialDonateHeadFamily />} />
               <Route
                 path="manage-social-donate"
-                element={<ManageSocialDonate />}
+                element={<ManageSocialDonateHeadFamily />}
               />
               <Route
                 path="create-social-donate"

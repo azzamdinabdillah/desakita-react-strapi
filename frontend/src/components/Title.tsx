@@ -7,6 +7,7 @@ export default function Title({
   subTitleSizeVariant = "medium",
   right,
   customClass,
+  customClassSubTitle,
 }: {
   right?: ReactNode;
   icon?: string;
@@ -14,6 +15,7 @@ export default function Title({
   subTitle?: string;
   subTitleSizeVariant?: "small" | "medium" | "large";
   customClass?: string;
+  customClassSubTitle?: string;
 }) {
   const subTitleSizeClass: { [key: string]: string } = {
     small: "text-14",
@@ -30,7 +32,7 @@ export default function Title({
           </h2>
         )}
         <h3
-          className={`${subTitleSizeClass[subTitleSizeVariant]} font-medium text-secondary-text-color`}
+          className={`${subTitleSizeClass[subTitleSizeVariant]} font-medium text-secondary-text-color ${customClassSubTitle}`}
         >
           {subTitle}
         </h3>
