@@ -114,7 +114,13 @@ export default function Sidebar({
               }}
               key={index}
               className={`menu group hover:bg-foreshadow rounded-2xl cursor-pointer transition-all text-base text-secondary-text-color font-normal leading-normal ${
-                location.pathname === menu.link ? "bg-foreshadow" : ""
+                location.pathname.split("/")[1] !== undefined
+                  ? `/${location.pathname.split("/")[1]}` === menu.link
+                    ? "bg-foreshadow"
+                    : ""
+                  : `/` === menu.link
+                  ? "bg-foreshadow"
+                  : ""
               }`}
             >
               <div
@@ -127,7 +133,11 @@ export default function Sidebar({
                   <img src={menu.icon} alt="" />
                   <h3
                     className={`${
-                      location.pathname === menu.link
+                      location.pathname.split("/")[1] !== undefined
+                        ? `/${location.pathname.split("/")[1]}` === menu.link
+                          ? "text-dark-green font-medium"
+                          : ""
+                        : `/` === menu.link
                         ? "text-dark-green font-medium"
                         : ""
                     } group-hover:text-dark-green group-hover:font-medium`}

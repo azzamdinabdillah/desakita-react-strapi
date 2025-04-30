@@ -104,86 +104,103 @@ export default function SidebarHeadFamily({
             Main Menu
           </h2>
 
-          {menus.map((menu, index) => (
-            <div
-              onClick={() => {
-                if (!menu.subMenu) {
-                  navigate(menu.link || "/");
-                  setIsOpenSidebar(false);
-                }
-              }}
-              key={index}
-              className={`menu group hover:bg-foreshadow rounded-2xl cursor-pointer transition-all text-base text-secondary-text-color font-normal leading-normal ${
-                location.pathname === menu.link ? "bg-foreshadow" : ""
-              }`}
-            >
+          {menus.map((menu, index) => {
+            console.log("menu link", menu.link);
+
+            return (
               <div
-                onClick={() => toggleExpanded(menu.menu)}
-                className={`flex justify-between items-center p-4 ${
-                  menu.subMenu && menu.isExpanded ? "pb-2" : ""
+                onClick={() => {
+                  if (!menu.subMenu) {
+                    navigate(menu.link || "/");
+                    setIsOpenSidebar(false);
+                  }
+                }}
+                key={index}
+                className={`menu group hover:bg-foreshadow rounded-2xl cursor-pointer transition-all text-base text-secondary-text-color font-normal leading-normal ${
+                  location.pathname.split("/")[2] !== undefined
+                    ? `/head-family/${location.pathname.split("/")[2]}` ===
+                      menu.link
+                      ? "bg-foreshadow"
+                      : ""
+                    : `/${location.pathname.split("/")[1]}` === menu.link
+                    ? "bg-foreshadow"
+                    : ""
                 }`}
               >
-                <div className="gap-2 flex items-center">
-                  <img src={menu.icon} alt="" />
-                  <h3
-                    className={`${
-                      location.pathname === menu.link
-                        ? "text-dark-green font-medium"
-                        : ""
-                    } group-hover:text-dark-green group-hover:font-medium`}
-                  >
-                    {menu.menu}
-                  </h3>
+                <div
+                  onClick={() => toggleExpanded(menu.menu)}
+                  className={`flex justify-between items-center p-4 ${
+                    menu.subMenu && menu.isExpanded ? "pb-2" : ""
+                  }`}
+                >
+                  <div className="gap-2 flex items-center">
+                    <img src={menu.icon} alt="" />
+                    <h3
+                      className={`${
+                        location.pathname.split("/")[2] !== undefined
+                          ? `/head-family/${
+                              location.pathname.split("/")[2]
+                            }` === menu.link
+                            ? "text-dark-green font-medium"
+                            : ""
+                          : `/${location.pathname.split("/")[1]}` === menu.link
+                          ? "text-dark-green font-medium"
+                          : ""
+                      } group-hover:text-dark-green group-hover:font-medium`}
+                    >
+                      {menu.menu}
+                    </h3>
+                  </div>
+                  {menu.subMenu && (
+                    <img
+                      src="/icons/dropdown-menu-sidebar.svg"
+                      alt=""
+                      className={`transition-all ${
+                        menu.isExpanded ? "rotate-180" : ""
+                      }`}
+                    />
+                  )}
                 </div>
                 {menu.subMenu && (
-                  <img
-                    src="/icons/dropdown-menu-sidebar.svg"
-                    alt=""
-                    className={`transition-all ${
-                      menu.isExpanded ? "rotate-180" : ""
-                    }`}
-                  />
+                  <div
+                    className={`${
+                      menu.isExpanded ? "max-h-96 mt-4" : "max-h-0"
+                    } sub-menu overflow-hidden transition-all ml-7 relative before:absolute before:top-0 before:left-0 before:w-0.5 before:h-[70%] before:bg-[#F2F9F6]`}
+                  >
+                    {menu.subMenu.map((subMenu, index) => (
+                      <NavLink
+                        to={subMenu.link || ""}
+                        onClick={() => setIsOpenSidebar(false)}
+                        className={({ isActive }) =>
+                          isActive ? "inline-block w-full" : ""
+                        }
+                        key={index}
+                      >
+                        {({ isActive }) => (
+                          <div className="relative">
+                            <img
+                              src="/icons/line-sub-menu.svg"
+                              className="absolute left-0 top-1"
+                              alt=""
+                            />
+                            <p
+                              className={`${
+                                isActive
+                                  ? "bg-foreshadow font-medium text-dark-green"
+                                  : "bg-transparent font-normal text-secondary-text-color"
+                              } py-4 ml-8 pl-4 rounded-2xl`}
+                            >
+                              {subMenu.menu}
+                            </p>
+                          </div>
+                        )}
+                      </NavLink>
+                    ))}
+                  </div>
                 )}
               </div>
-              {menu.subMenu && (
-                <div
-                  className={`${
-                    menu.isExpanded ? "max-h-96 mt-4" : "max-h-0"
-                  } sub-menu overflow-hidden transition-all ml-7 relative before:absolute before:top-0 before:left-0 before:w-0.5 before:h-[70%] before:bg-[#F2F9F6]`}
-                >
-                  {menu.subMenu.map((subMenu, index) => (
-                    <NavLink
-                      to={subMenu.link || ""}
-                      onClick={() => setIsOpenSidebar(false)}
-                      className={({ isActive }) =>
-                        isActive ? "inline-block w-full" : ""
-                      }
-                      key={index}
-                    >
-                      {({ isActive }) => (
-                        <div className="relative">
-                          <img
-                            src="/icons/line-sub-menu.svg"
-                            className="absolute left-0 top-1"
-                            alt=""
-                          />
-                          <p
-                            className={`${
-                              isActive
-                                ? "bg-foreshadow font-medium text-dark-green"
-                                : "bg-transparent font-normal text-secondary-text-color"
-                            } py-4 ml-8 pl-4 rounded-2xl`}
-                          >
-                            {subMenu.menu}
-                          </p>
-                        </div>
-                      )}
-                    </NavLink>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
