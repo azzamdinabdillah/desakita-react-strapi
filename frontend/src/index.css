@@ -30,6 +30,10 @@ hr {
   @apply flex flex-col gap-4 lg:gap-6;
 }
 
+.flex-col-4-6 {
+  @apply flex flex-col gap-4 lg:gap-6;
+}
+
 .label-radio:has(.input-radio-choose-role-login:checked) {
   border: 1px solid #34613a;
   background-color: #f1fae6;

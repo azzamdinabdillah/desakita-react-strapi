@@ -21,7 +21,7 @@ export default function SidebarHeadFamily({
     },
     {
       menu: "Anggota Keluarga",
-      link: "/head-house",
+      link: "/head-family/family-member",
       icon: "/icons/menu-kepala-rumah.svg",
     },
     {
