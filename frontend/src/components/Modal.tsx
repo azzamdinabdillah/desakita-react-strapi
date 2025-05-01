@@ -8,13 +8,17 @@ export default function Modal({
   confirm,
   header,
   confirmButtonElement,
+  body,
+  maxWidth = "lg:max-w-[335px]",
 }: {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
-  message: string;
+  message?: string;
   confirm?: () => void;
   header: string;
-  confirmButtonElement: ReactNode | string;
+  confirmButtonElement?: ReactNode | string;
+  body?: ReactNode;
+  maxWidth?: string;
 }) {
   return (
     <div
@@ -22,7 +26,7 @@ export default function Modal({
         isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >
-      <div className="rounded-2xl overflow-hidden lg:max-w-[335px] m-4">
+      <div className={`rounded-2xl overflow-hidden m-4 ${maxWidth}`}>
         <div className="top bg-black flex justify-between items-center p-4">
           <h1 className="text-16 text-white font-medium">{header}</h1>
           <img
@@ -33,19 +37,30 @@ export default function Modal({
           />
         </div>
 
-        <div className="p-4 bg-white flex flex-col gap-3">
-          <p className="text-sm font-medium text-secondary-text-color leading-6">
-            {message}
-          </p>
+        <div className="p-4 bg-white flex flex-col gap-3 max-h-[70vh] overflow-y-auto">
+          {body ? (
+            body
+          ) : (
+            <p className="text-sm font-medium text-secondary-text-color leading-6">
+              {message}
+            </p>
+          )}
 
-          <hr />
+          {confirmButtonElement && (
+            <>
+              <hr />
 
-          <div className="flex gap-3">
-            <Button variant="borderTextBlack" onClick={() => setIsOpen(false)}>
-              Batal
-            </Button>
-            {confirmButtonElement}
-          </div>
+              <div className="flex gap-3">
+                <Button
+                  variant="borderTextBlack"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Batal
+                </Button>
+                {confirmButtonElement}
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>

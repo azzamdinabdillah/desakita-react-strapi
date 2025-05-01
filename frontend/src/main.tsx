@@ -19,6 +19,7 @@ import ApplicantSocialDonate from "./pages/head-village/social-donate/applicant-
 import ApplicantSocialDonateHeadFamily from "./pages/head-family/social-donate/applicant-social-donate/ApplicantSocialDonate.tsx";
 import ManageApplicantSocialDonate from "./pages/head-village/social-donate/applicant-social-donate/resources/ManageApplicantSocialDonate.tsx";
 import VillageDevelopmentSchedule from "./pages/head-village/village-schedule/development/VillageDevelopmentSchedule.tsx";
+import VillageDevelopmentScheduleHeadFamily from "./pages/head-family/village-schedule/development/VillageDevelopmentSchedule.tsx";
 import ManageVillageDevelopmentSchedule from "./pages/head-village/village-schedule/development/resources/ManageVillageDevelopmentSchedule.tsx";
 import CreateVillageDevelopmentSchedule from "./pages/head-village/village-schedule/development/resources/CreateVillageDevelopmentSchedule.tsx";
 import VillageEventSchedule from "./pages/head-village/village-schedule/event/VillageEventSchedule.tsx";
@@ -32,6 +33,7 @@ import ManageFamilyMember from "./pages/head-family/family-member/resources/Mana
 import CreateFamilyMember from "./pages/head-family/family-member/resources/CreateFamilyMember.tsx";
 import DetailsSocialDonate from "./pages/head-family/social-donate/list-social-donate/DetailsSocialDonate.tsx";
 import DetailsApplicantSocialDonate from "./pages/head-family/social-donate/applicant-social-donate/DetailsApplicantSocialDonate.tsx";
+import DetailsVillageDevelopmentSchedule from "./pages/head-family/village-schedule/development/DetailsVillageDevelopmentSchedule.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -141,6 +143,24 @@ createRoot(document.getElementById("root")!).render(
               <Route
                 path="details-applicant-social-donate"
                 element={<DetailsApplicantSocialDonate />}
+              />
+            </Route>
+          </Route>
+
+          <Route path="village-schedule">
+            <Route path="village-development-schedule">
+              <Route index element={<VillageDevelopmentScheduleHeadFamily />} />
+              <Route
+                path="details-village-development-schedule"
+                element={<DetailsVillageDevelopmentSchedule />}
+              />
+            </Route>
+
+            <Route path="village-event-schedule">
+              <Route index element={<VillageEventSchedule />} />
+              <Route
+                path="manage-village-event-schedule"
+                element={<ManageVillageEventSchedule />}
               />
             </Route>
           </Route>

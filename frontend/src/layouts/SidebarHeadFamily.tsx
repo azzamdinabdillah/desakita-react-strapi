@@ -46,7 +46,7 @@ export default function SidebarHeadFamily({
       subMenu: [
         {
           menu: "Pembangunan",
-          link: "/village-schedule/village-development-schedule",
+          link: "/head-family/village-schedule/village-development-schedule",
         },
         {
           menu: "Event Desa",
