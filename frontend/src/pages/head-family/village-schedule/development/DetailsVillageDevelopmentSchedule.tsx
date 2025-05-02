@@ -19,11 +19,19 @@ export default function DetailsVillageDevelopmentSchedule() {
     image: string;
   } | null>(null);
 
-  function handleSetApplicant({ name, job, image }: typeof applicant) {
+  function handleSetApplicant({
+    name,
+    job,
+    image,
+  }: {
+    name: string;
+    job: string;
+    image: string;
+  }) {
     setApplicant({
-      name: "Azam Din Abdillah",
-      job: "Mahasiswa",
-      image: "/images/user-3.png",
+      name: name,
+      job: job,
+      image: image,
     });
 
     setOpenModalChooseApplicant(false);
@@ -32,6 +40,7 @@ export default function DetailsVillageDevelopmentSchedule() {
   return (
     <div className="flex flex-col gap-6">
       <Modal
+        subHeader="Pilih salah satu anggota keluarga"
         maxWidth="lg:max-w-[760px] w-full"
         body={
           <>
@@ -40,6 +49,7 @@ export default function DetailsVillageDevelopmentSchedule() {
                 <Title subTitle="Suami (You)" />
 
                 <label
+                  className="label-radio input-radio-active-border rounded-2xl overflow-hidden"
                   onClick={() =>
                     handleSetApplicant({
                       name: "Azam Din Abdillah",
@@ -71,6 +81,7 @@ export default function DetailsVillageDevelopmentSchedule() {
                 <Title subTitle="Istri (1)" />
 
                 <label
+                  className="label-radio input-radio-active-border rounded-2xl overflow-hidden"
                   onClick={() =>
                     handleSetApplicant({
                       name: "Azam Din Abdillah",
@@ -103,6 +114,7 @@ export default function DetailsVillageDevelopmentSchedule() {
 
                 {Array.from({ length: 3 }, (_, index) => (
                   <label
+                    className="label-radio input-radio-active-border rounded-2xl overflow-hidden"
                     onClick={() =>
                       handleSetApplicant({
                         name: "Azam Din Abdillah",

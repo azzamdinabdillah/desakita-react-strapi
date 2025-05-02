@@ -23,6 +23,7 @@ import VillageDevelopmentScheduleHeadFamily from "./pages/head-family/village-sc
 import ManageVillageDevelopmentSchedule from "./pages/head-village/village-schedule/development/resources/ManageVillageDevelopmentSchedule.tsx";
 import CreateVillageDevelopmentSchedule from "./pages/head-village/village-schedule/development/resources/CreateVillageDevelopmentSchedule.tsx";
 import VillageEventSchedule from "./pages/head-village/village-schedule/event/VillageEventSchedule.tsx";
+import VillageEventScheduleHeadFamily from "./pages/head-family/village-schedule/event/VillageEventSchedule.tsx";
 import ManageVillageEventSchedule from "./pages/head-village/village-schedule/event/resources/ManageVillageEventSchedule.tsx";
 import CreateVillageEventSchedule from "./pages/head-village/village-schedule/event/resources/CreateVillageEventSchedule.tsx";
 import SearchResult from "./pages/head-village/SearchResult.tsx";
@@ -34,6 +35,7 @@ import CreateFamilyMember from "./pages/head-family/family-member/resources/Crea
 import DetailsSocialDonate from "./pages/head-family/social-donate/list-social-donate/DetailsSocialDonate.tsx";
 import DetailsApplicantSocialDonate from "./pages/head-family/social-donate/applicant-social-donate/DetailsApplicantSocialDonate.tsx";
 import DetailsVillageDevelopmentSchedule from "./pages/head-family/village-schedule/development/DetailsVillageDevelopmentSchedule.tsx";
+import DetailsVillageEventSchedule from "./pages/head-family/village-schedule/event/DetailsVillageEventSchedule.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -157,10 +159,10 @@ createRoot(document.getElementById("root")!).render(
             </Route>
 
             <Route path="village-event-schedule">
-              <Route index element={<VillageEventSchedule />} />
+              <Route index element={<VillageEventScheduleHeadFamily />} />
               <Route
-                path="manage-village-event-schedule"
-                element={<ManageVillageEventSchedule />}
+                path="details-village-event-schedule"
+                element={<DetailsVillageEventSchedule />}
               />
             </Route>
           </Route>

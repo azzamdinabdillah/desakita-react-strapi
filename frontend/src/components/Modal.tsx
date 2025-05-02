@@ -10,12 +10,14 @@ export default function Modal({
   confirmButtonElement,
   body,
   maxWidth = "lg:max-w-[335px]",
+  subHeader,
 }: {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
   message?: string;
   confirm?: () => void;
   header: string;
+  subHeader?: string;
   confirmButtonElement?: ReactNode | string;
   body?: ReactNode;
   maxWidth?: string;
@@ -28,7 +30,12 @@ export default function Modal({
     >
       <div className={`rounded-2xl overflow-hidden m-4 ${maxWidth}`}>
         <div className="top bg-black flex justify-between items-center p-4">
-          <h1 className="text-16 text-white font-medium">{header}</h1>
+          <div className="">
+            <h1 className="text-16 text-white font-medium">{header}</h1>
+            {subHeader && (
+              <p className="text-[10px] text-aksen font-medium">{subHeader}</p>
+            )}
+          </div>
           <img
             className="cursor-pointer hover:scale-110 transition-all"
             src="/icons/close-modal.svg"

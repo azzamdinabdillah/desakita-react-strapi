@@ -46,6 +46,12 @@ hr {
   background-color: #f1fae6;
 }
 
+.label-radio:has(.input-radio-active-border:checked) {
+  border: 1.5px solid #34613a;
+  color: #001b1a;
+  background-color: transparent !important;
+}
+
 .input-radio-choose-gender {
   @apply accent-[#34613a] lg:w-[18px];
 }

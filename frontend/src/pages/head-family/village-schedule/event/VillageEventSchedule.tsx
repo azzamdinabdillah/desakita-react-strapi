@@ -7,14 +7,14 @@ import DetailsList from "../../../../components/DetailsList";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import Pagination from "../../../../components/Pagination";
 
-export default function VillageDevelopmentSchedule() {
+export default function VillageEventSchedule() {
   return (
     <div className="flex flex-col gap-6">
-      <TitlePage title="Pembangunan Desa" />
+      <TitlePage title="Event Desa" />
 
       <Tabs className="flex flex-col gap-4 lg:gap-6">
         <TabList className="flex gap-1 p-1 items-center bg-foreshadow overflow-x-auto w-full">
-          {["Semua Pembangunan", "Pengajuan Saya"].map((tab, index) => (
+          {["Semua Event", "Sudah Diikuti"].map((tab, index) => (
             <Tab
               key={index}
               selectedClassName="!bg-dark-green text-white"
@@ -30,8 +30,8 @@ export default function VillageDevelopmentSchedule() {
               <Inputs
                 type="text"
                 isIconLeft={true}
-                icons="/icons/box-search.svg"
-                placeholder="Cari nama pembangunan desa"
+                icons="/icons/calendar-search.svg"
+                placeholder="Cari nama event desa"
                 customClass="bg-white"
               />
             </div>
@@ -82,14 +82,14 @@ export default function VillageDevelopmentSchedule() {
                               subTitle={
                                 <div className="gap-1 flex items-center w-full">
                                   <img
-                                    src="/icons/user-square.svg"
+                                    src="/icons/ticket.svg"
                                     alt=""
                                     className="w-3.5 lg:w-4.5"
                                   />
                                   <p className="text-secondary-text-color text-14 font-medium w-full flex-grow">
-                                    Penanggung Jawab :{" "}
+                                    Registration: :{" "}
                                     <span className="text-dark-green">
-                                      Uciha Asep
+                                      Open
                                     </span>
                                   </p>
                                 </div>
@@ -98,7 +98,7 @@ export default function VillageDevelopmentSchedule() {
 
                             <Link
                               to={
-                                "/head-family/village-schedule/village-development-schedule/details-village-development-schedule"
+                                "/head-family/village-schedule/village-eventmony-schedule/details-village-event-schedule"
                               }
                             >
                               <Button variant="black">Lihat Detail</Button>
@@ -162,14 +162,14 @@ export default function VillageDevelopmentSchedule() {
                               subTitle={
                                 <div className="gap-1 flex items-center w-full">
                                   <img
-                                    src="/icons/user-square.svg"
+                                    src="/icons/ticket.svg"
                                     alt=""
                                     className="w-3.5 lg:w-4.5"
                                   />
                                   <p className="text-secondary-text-color text-14 font-medium w-full flex-grow">
-                                    Penanggung Jawab :{" "}
+                                    Registration: :{" "}
                                     <span className="text-dark-green">
-                                      Uciha Asep
+                                      Open
                                     </span>
                                   </p>
                                 </div>
@@ -178,7 +178,7 @@ export default function VillageDevelopmentSchedule() {
 
                             <Link
                               to={
-                                "/head-family/village-schedule/village-development-schedule/details-village-development-schedule"
+                                "/head-family/village-schedule/village-eventmony-schedule/details-village-event-schedule"
                               }
                             >
                               <Button variant="black">Lihat Detail</Button>

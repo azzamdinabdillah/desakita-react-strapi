@@ -50,7 +50,7 @@ export default function SidebarHeadFamily({
         },
         {
           menu: "Event Desa",
-          link: "/village-schedule/village-event-schedule",
+          link: "/head-family/village-schedule/village-event-schedule",
         },
       ],
     },
