@@ -215,8 +215,8 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-7 gap-3.5">
-        <div className="lg:col-span-3">
+      <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-3.5">
+        <div className="md:col-span-1 lg:col-span-3">
           <StatsDashboard
             stat={{
               title: "Bantuan Sosial",
@@ -276,7 +276,7 @@ export default function Dashboard() {
           />
         </div>
 
-        <div className="flex flex-col gap-4 lg:gap-6 bg-white rounded-3xl p-6 lg:col-span-4">
+        <div className="flex flex-col gap-4 lg:gap-6 bg-white rounded-3xl p-6 md:col-span-1 lg:col-span-4">
           <div className="flex flex-col gap-4">
             <div className="top flex justify-between gap-4 items-center">
               <img
@@ -357,8 +357,8 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-4">
-        <div className="gap-3.5 flex flex-col flex-grow w-full">
+      <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="gap-3.5 flex flex-col flex-grow w-full md:col-span-1 lg:col-span-3">
           <div>
             <StatsDashboard
               stat={{
@@ -470,7 +470,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="chart w-full lg:max-w-[360px]">
+        <div className="chart w-full lg:flex-grow md:col-span-1 lg:col-span-2">
           <div className="gap-4 lg:gap-6 flex flex-col flex-grow bg-white rounded-3xl p-6">
             <div className="flex flex-col flex-grow gap-3">
               <div className="top flex justify-between items-center gap-3">
