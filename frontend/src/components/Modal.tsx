@@ -5,7 +5,6 @@ export default function Modal({
   isOpen,
   setIsOpen,
   message,
-  confirm,
   header,
   confirmButtonElement,
   body,

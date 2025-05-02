@@ -5,10 +5,8 @@ import DashboardStatus from "../../../../components/DashboardStatus";
 import DetailsList from "../../../../components/DetailsList";
 import Title from "../../../../components/Title";
 import PeopleCard from "../../../../components/PeopleCard";
-import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { useState } from "react";
 import Modal from "../../../../components/Modal";
-import RecentActivity from "../../../../components/RecentActivity";
 
 const headDetail = [
   {
