@@ -49,7 +49,7 @@ export default function CreateHeadHouse() {
 
       <WrapperElement>
         <form className="flex-wrapper">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:justify-between items-center">
             <Label customClass="col-span-2" labelFor="village-name">
               Profile Kepala Rumah
             </Label>
@@ -61,7 +61,7 @@ export default function CreateHeadHouse() {
                     : "/icons/placeholder-upload-profile.svg"
                 }
                 alt=""
-                className="w-[80px] lg:w-[100px] h-[80px] lg:h-[100px] rounded-full object-cover"
+                className="w-[80px] md:w-[100px] h-[80px] md:h-[100px] rounded-full object-cover"
               />
               <Button
                 variant="black"
@@ -87,7 +87,7 @@ export default function CreateHeadHouse() {
 
           <hr />
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:justify-between items-center">
             <Label customClass="col-span-2" labelFor="head-name">
               Nama Kepala Rumah
             </Label>
@@ -104,7 +104,7 @@ export default function CreateHeadHouse() {
 
           <hr />
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:justify-between items-center">
             <Label customClass="col-span-2" labelFor="head-nik">
               Nomor Induk Kependudukan
             </Label>
@@ -121,7 +121,7 @@ export default function CreateHeadHouse() {
 
           <hr />
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:justify-between items-center">
             <Label customClass="col-span-2" labelFor="head-phone-number">
               Nomor Handphone
             </Label>
@@ -138,7 +138,7 @@ export default function CreateHeadHouse() {
 
           <hr />
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:justify-between items-center">
             <Label customClass="col-span-2" labelFor="head-job">
               Pekerjaan
             </Label>
@@ -155,12 +155,12 @@ export default function CreateHeadHouse() {
 
           <hr />
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:justify-between items-center">
             <Label customClass="col-span-2" labelFor="head-date-birth">
               Tanggal Lahir
             </Label>
             <div className="col-span-3">
-              <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
+              <div className="flex flex-col md:flex-row gap-4 md:gap-6">
                 <DatePicker
                   className="w-full flex-grow"
                   selected={startDate}
@@ -176,7 +176,7 @@ export default function CreateHeadHouse() {
                   customInput={<CustomInputDate className="w-full" />}
                 />
 
-                <div className="lg:max-w-[180px] w-full p-3 lg:p-4 flex justify-center items-center text-16 font-medium text-dark-green rounded-2xl border border-foreshadow bg-foreshadow">
+                <div className="md:max-w-[180px] w-full p-3 md:p-4 flex justify-center items-center text-16 font-medium text-dark-green rounded-2xl border border-foreshadow bg-foreshadow">
                   Umur:{" "}
                   {new Date().getFullYear() -
                     (startDate?.getFullYear()
@@ -190,12 +190,12 @@ export default function CreateHeadHouse() {
 
           <hr />
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:justify-between items-center">
             <Label customClass="col-span-2" labelFor="village-total-citizen">
               Jenis Kelamin
             </Label>
             <div className="col-span-3">
-              <div className="grid grid-cols-2 gap-3 lg:gap-6 ">
+              <div className="grid grid-cols-2 gap-3 md:gap-6 ">
                 <label
                   htmlFor="gender-men"
                   className="label-radio label-input-radio"
@@ -209,7 +209,7 @@ export default function CreateHeadHouse() {
                     />
                     Pria
                   </div>
-                  <img src="/icons/man.svg" alt="" className="w-5 lg:w-6" />
+                  <img src="/icons/man.svg" alt="" className="w-5 md:w-6" />
                 </label>
                 <label
                   htmlFor="gender-woman"
@@ -224,7 +224,7 @@ export default function CreateHeadHouse() {
                     />
                     Wanita
                   </div>
-                  <img src="/icons/woman.svg" alt="" className="w-5 lg:w-6" />
+                  <img src="/icons/woman.svg" alt="" className="w-5 md:w-6" />
                 </label>
               </div>
             </div>
@@ -232,12 +232,12 @@ export default function CreateHeadHouse() {
 
           <hr />
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:justify-between items-center">
             <Label customClass="col-span-2" labelFor="village-total-citizen">
               Status
             </Label>
             <div className="col-span-3">
-              <div className="grid grid-cols-1 gap-3 lg:gap-6 lg:grid-cols-2">
+              <div className="grid grid-cols-1 gap-3 md:gap-6 md:grid-cols-2">
                 <label
                   htmlFor="status-nonmerried"
                   className="label-radio label-input-radio"
@@ -254,7 +254,7 @@ export default function CreateHeadHouse() {
                   <img
                     src="/icons/nonmerried.svg"
                     alt=""
-                    className="w-5 lg:w-6"
+                    className="w-5 md:w-6"
                   />
                 </label>
                 <label
@@ -270,7 +270,7 @@ export default function CreateHeadHouse() {
                     />
                     Menikah
                   </div>
-                  <img src="/icons/merried.svg" alt="" className="w-5 lg:w-6" />
+                  <img src="/icons/merried.svg" alt="" className="w-5 md:w-6" />
                 </label>
               </div>
             </div>
@@ -280,7 +280,7 @@ export default function CreateHeadHouse() {
 
           <h3 className="text-16 font-medium text-black">Akun Dashboard</h3>
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:justify-between items-center">
             <Label customClass="col-span-2" labelFor="head-email">
               Email Address
             </Label>
@@ -297,7 +297,7 @@ export default function CreateHeadHouse() {
 
           <hr />
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:justify-between items-center">
             <Label customClass="col-span-2" labelFor="head-pw">
               Passwords
             </Label>

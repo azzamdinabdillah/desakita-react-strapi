@@ -73,8 +73,8 @@ export default function ManageHeadHouse() {
         }
       />
 
-      <div className="flex flex-col lg:flex-row items-start gap-3.5">
-        <div className="flex flex-col gap-3.5 lg:flex-grow">
+      <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-5 items-start gap-3.5">
+        <div className="flex flex-col gap-3.5 lg:flex-grow md:col-span-1 lg:col-span-3 w-full">
           <WrapperElement>
             <Title subTitle="Kepala Rumah" />
 
@@ -177,7 +177,7 @@ export default function ManageHeadHouse() {
           </WrapperElement>
         </div>
 
-        <div className="flex flex-col gap-3.5 lg:max-w-[438px] w-full">
+        <div className="flex flex-col gap-3.5 md:col-span-1 lg:col-span-2 w-full">
           <WrapperElement>
             <Title subTitle="Aktivitas Terbaru" />
 
