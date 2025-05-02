@@ -59,6 +59,11 @@ export default function Sidebar({
       link: "/village-profile",
       icon: "/icons/menu-profile.svg",
     },
+    {
+      menu: "Head Family Role Page",
+      link: "/head-family",
+      icon: "/icons/menu-profile.svg",
+    },
   ]);
 
   function toggleExpanded(menuString: string) {
@@ -81,7 +86,7 @@ export default function Sidebar({
           : "translate-x-full lg:translate-0"
       } bg-black/15 transition-all fixed z-20 h-dvh w-[100vw] lg:w-[300px]`}
     >
-      <div className=" bg-white z-10 p-6 lg:py-[30px] h-full ml-auto w-[100vw] lg:w-[300px] gap-6 flex flex-col">
+      <div className=" bg-white z-10 p-6 lg:py-[30px] h-full overflow-y-auto no-scrollbar scroll ml-auto w-[100vw] lg:w-[300px] gap-6 flex flex-col">
         <div className="top">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-3">

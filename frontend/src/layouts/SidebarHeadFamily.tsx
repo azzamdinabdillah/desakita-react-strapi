@@ -55,8 +55,8 @@ export default function SidebarHeadFamily({
       ],
     },
     {
-      menu: "Profil Desa",
-      link: "/village-profile",
+      menu: "Head Village Role Page",
+      link: "/",
       icon: "/icons/menu-profile.svg",
     },
   ]);
