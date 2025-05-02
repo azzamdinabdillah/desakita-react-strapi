@@ -13,6 +13,21 @@ import PeopleCard, {
 export default function DetailsVillageDevelopmentSchedule() {
   const [openModalChooseApplicant, setOpenModalChooseApplicant] =
     useState(false);
+  const [applicant, setApplicant] = useState<{
+    name: string;
+    job: string;
+    image: string;
+  } | null>(null);
+
+  function handleSetApplicant({ name, job, image }: typeof applicant) {
+    setApplicant({
+      name: "Azam Din Abdillah",
+      job: "Mahasiswa",
+      image: "/images/user-3.png",
+    });
+
+    setOpenModalChooseApplicant(false);
+  }
 
   return (
     <div className="flex flex-col gap-6">
@@ -24,7 +39,16 @@ export default function DetailsVillageDevelopmentSchedule() {
               <div className="flex flex-col gap-3">
                 <Title subTitle="Suami (You)" />
 
-                <label htmlFor="select-husband">
+                <label
+                  onClick={() =>
+                    handleSetApplicant({
+                      name: "Azam Din Abdillah",
+                      job: "Mahasiswa",
+                      image: "/images/user-3.png",
+                    })
+                  }
+                  htmlFor="select-husband"
+                >
                   <PeopleCardComplete
                     image="/images/user-3.png"
                     name="Azam Din Abdillah"
@@ -46,7 +70,16 @@ export default function DetailsVillageDevelopmentSchedule() {
               <div className="flex flex-col gap-3">
                 <Title subTitle="Istri (1)" />
 
-                <label htmlFor="select-wife">
+                <label
+                  onClick={() =>
+                    handleSetApplicant({
+                      name: "Azam Din Abdillah",
+                      job: "Mahasiswa",
+                      image: "/images/user-3.png",
+                    })
+                  }
+                  htmlFor="select-wife"
+                >
                   <PeopleCardComplete
                     image="/images/user-3.png"
                     name="Azam Din Abdillah"
@@ -69,7 +102,16 @@ export default function DetailsVillageDevelopmentSchedule() {
                 <Title subTitle="Anak (3)" />
 
                 {Array.from({ length: 3 }, (_, index) => (
-                  <label htmlFor={`select-${index}`}>
+                  <label
+                    onClick={() =>
+                      handleSetApplicant({
+                        name: "Azam Din Abdillah",
+                        job: "Mahasiswa",
+                        image: "/images/user-3.png",
+                      })
+                    }
+                    htmlFor={`select-${index}`}
+                  >
                     <PeopleCardComplete
                       image="/images/user-3.png"
                       name="Azam Din Abdillah"
@@ -192,50 +234,57 @@ export default function DetailsVillageDevelopmentSchedule() {
 
         <WrapperElement customClass="md:col-span-5 lg:col-span-4">
           <Title subTitle="Detail Pengajuan" subTitleSizeVariant="small" />
-
           <DetailsList
             titleColor="text-dark-green"
             icon="/icons/timer-bg-green.svg"
             title="192 Hari"
             value="Waktu Diperlukan"
           />
-
           <hr />
-
           <DetailsList
             titleColor="text-dark-green"
             icon="/icons/calendar-tick-bg.svg"
             title="Wed, 3 Sep 2025"
             value="Perkiraan Selesai"
           />
-
           <hr />
-
           <DetailsList
             titleColor="text-dark-green"
             icon="/icons/dollar-square-bg.svg"
             title="Pembayaran diatur di balai desa."
             value="Bayaran Kerja"
           />
-
           <hr />
 
-          <DetailsList
-            titleColor="text-dark-green"
-            icon="/icons/placeholder-upload-profile-circle.svg"
-            title="Pelamar Applicant"
-            value="Pilih Anggota Keluarga"
-            right={
-              <img
-                onClick={() => setOpenModalChooseApplicant(true)}
-                src="/icons/arrow-square-right.svg"
-                alt=""
-              />
-            }
-          />
-
+          {applicant === null ? (
+            <DetailsList
+              titleColor="text-dark-green"
+              icon="/icons/placeholder-upload-profile-circle.svg"
+              title="Pelamar Applicant"
+              value="Pilih Anggota Keluarga"
+              right={
+                <img
+                  onClick={() => setOpenModalChooseApplicant(true)}
+                  src="/icons/arrow-square-right.svg"
+                  alt=""
+                />
+              }
+            />
+          ) : (
+            <PeopleCard
+              image={applicant.image}
+              name={applicant.name}
+              job={applicant.job}
+              right={
+                <img
+                  onClick={() => setOpenModalChooseApplicant(true)}
+                  src="/icons/arrow-square-right.svg"
+                  alt=""
+                />
+              }
+            />
+          )}
           <hr />
-
           <Button variant="green">Setuju & Ajukan Sekarang</Button>
         </WrapperElement>
       </div>
