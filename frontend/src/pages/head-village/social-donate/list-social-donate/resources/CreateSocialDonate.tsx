@@ -25,7 +25,7 @@ export default function CreateSocialDonate() {
 
       <WrapperElement>
         <form className="flex-wrapper">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:justify-between items-center">
             <Label customClass="col-span-2" labelFor="village-name">
               Thumbnail Bantuan Sosial
             </Label>
@@ -37,7 +37,7 @@ export default function CreateSocialDonate() {
                     : "/images/placeholder-upload-thumbnail-bansos.png"
                 }
                 alt=""
-                className="w-[100px] lg:w-[120px] h-[80px] lg:h-[100px] rounded-3xl object-cover"
+                className="w-[100px] md:w-[120px] h-[80px] md:h-[100px] rounded-3xl object-cover"
               />
               <Button
                 variant="black"
@@ -63,7 +63,7 @@ export default function CreateSocialDonate() {
 
           <hr />
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:justify-between items-center">
             <Label customClass="col-span-2" labelFor="head-name">
               Nama Bantuan Sosial
             </Label>
@@ -80,15 +80,15 @@ export default function CreateSocialDonate() {
 
           <hr />
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:justify-between items-center">
             <Label customClass="col-span-2" labelFor="village-total-citizen">
               Pilih Opsi Kategori
             </Label>
             <div className="col-span-3">
-              <div className="flex flex-wrap gap-3 lg:gap-6 ">
+              <div className="flex flex-wrap gap-3 md:gap-6 ">
                 <label
                   htmlFor="main-material"
-                  className="label-radio label-input-radio lg:flex-[40%]"
+                  className="label-radio label-input-radio md:flex-[40%]"
                 >
                   <div className="flex gap-2">
                     <input
@@ -102,12 +102,12 @@ export default function CreateSocialDonate() {
                   <img
                     src="/icons/bag-2-plain.svg"
                     alt=""
-                    className="w-5 lg:w-6"
+                    className="w-5 md:w-6"
                   />
                 </label>
                 <label
                   htmlFor="money"
-                  className="label-radio label-input-radio lg:flex-[40%]"
+                  className="label-radio label-input-radio md:flex-[40%]"
                 >
                   <div className="flex gap-2">
                     <input
@@ -121,12 +121,12 @@ export default function CreateSocialDonate() {
                   <img
                     src="/icons/money-plain.svg"
                     alt=""
-                    className="w-5 lg:w-6"
+                    className="w-5 md:w-6"
                   />
                 </label>
                 <label
                   htmlFor="gas"
-                  className="label-radio label-input-radio lg:flex-[40%]"
+                  className="label-radio label-input-radio md:flex-[40%]"
                 >
                   <div className="flex gap-2">
                     <input
@@ -140,12 +140,12 @@ export default function CreateSocialDonate() {
                   <img
                     src="/icons/gas-station.svg"
                     alt=""
-                    className="w-5 lg:w-6"
+                    className="w-5 md:w-6"
                   />
                 </label>
                 <label
                   htmlFor="health"
-                  className="label-radio label-input-radio lg:flex-[40%]"
+                  className="label-radio label-input-radio md:flex-[40%]"
                 >
                   <div className="flex gap-2">
                     <input
@@ -156,7 +156,7 @@ export default function CreateSocialDonate() {
                     />
                     Kesehatan
                   </div>
-                  <img src="/icons/health.svg" alt="" className="w-5 lg:w-6" />
+                  <img src="/icons/health.svg" alt="" className="w-5 md:w-6" />
                 </label>
               </div>
             </div>
@@ -164,7 +164,7 @@ export default function CreateSocialDonate() {
 
           <hr />
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:justify-between items-center">
             <Label customClass="col-span-2" labelFor="head-email">
               Nominal Bantuan
             </Label>
@@ -181,7 +181,7 @@ export default function CreateSocialDonate() {
 
           <hr />
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:justify-between items-center">
             <Label customClass="col-span-2" labelFor="head-pw">
               Nama Pemberi Bantuan
             </Label>
@@ -198,7 +198,7 @@ export default function CreateSocialDonate() {
 
           <hr />
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:justify-between items-center">
             <Label customClass="col-span-2" labelFor="village-location">
               Deskripsi Bantuan Sosial
             </Label>
@@ -214,15 +214,15 @@ export default function CreateSocialDonate() {
 
           <hr />
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:justify-between items-center">
             <Label customClass="col-span-2" labelFor="choose-is-available">
               Pilih Opsi Kategori
             </Label>
             <div className="col-span-3">
-              <div className="flex flex-wrap gap-3 lg:gap-6 ">
+              <div className="flex flex-wrap gap-3 md:gap-6 ">
                 <label
                   htmlFor="available"
-                  className="label-radio label-input-radio lg:flex-1"
+                  className="label-radio label-input-radio md:flex-1"
                 >
                   <div className="flex gap-2">
                     <input
@@ -236,12 +236,12 @@ export default function CreateSocialDonate() {
                   <img
                     src="/icons/tick-circle.svg"
                     alt=""
-                    className="w-5 lg:w-6"
+                    className="w-5 md:w-6"
                   />
                 </label>
                 <label
                   htmlFor="not-available"
-                  className="label-radio label-input-radio lg:flex-1"
+                  className="label-radio label-input-radio md:flex-1"
                 >
                   <div className="flex gap-2">
                     <input
@@ -255,7 +255,7 @@ export default function CreateSocialDonate() {
                   <img
                     src="/icons/close-circle-2.svg"
                     alt=""
-                    className="w-5 lg:w-6"
+                    className="w-5 md:w-6"
                   />
                 </label>
               </div>

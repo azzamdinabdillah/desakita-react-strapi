@@ -50,8 +50,8 @@ export default function ManageSocialDonate() {
         }
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-8 gap-4 items-start">
-        <WrapperElement customClass="lg:col-span-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-8 gap-4 items-start">
+        <WrapperElement customClass="md:col-span-1 lg:col-span-5">
           <Title subTitle="Informasi Bantuan Sosial" />
 
           <div className="flex justify-between items-center">
@@ -110,7 +110,7 @@ export default function ManageSocialDonate() {
           </div>
         </WrapperElement>
 
-        <WrapperElement customClass="lg:col-span-3">
+        <WrapperElement customClass="md:col-span-1 lg:col-span-3">
           <Title subTitle="Penerima Bansos Terakhir" />
 
           {Array.from({ length: 3 }).map((_, index) => (
