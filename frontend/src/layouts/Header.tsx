@@ -1,6 +1,7 @@
 import Inputs from "../components/Inputs";
 import SearchNormalSvg from "../../public/search-normal.svg";
 import { Dispatch, SetStateAction } from "react";
+import { Link } from "react-router";
 
 interface HeaderIF {
   isOpenSidebar: boolean;
@@ -30,9 +31,12 @@ export default function Header({ isOpenSidebar, setIsOpenSidebar }: HeaderIF) {
         className="w-14 lg:w-15 rounded-2xl border border-bg-color p-1.5 lg:p-4 hidden lg:block"
       />
       <div className="hidden lg:flex gap-4 items-center">
-        <div className="image bg-[#F1FAE6] rounded-full overflow-hidden w-[56px] h-[56px]">
+        <Link
+          to={"/login"}
+          className="image bg-[#F1FAE6] rounded-full overflow-hidden w-[56px] h-[56px]"
+        >
           <img src="/images/user.png" alt="" className="w-full h-full" />
-        </div>
+        </Link>
         <div className="gap-[6px] flex flex-col w-[120px]">
           <h5 className="w-full text-base text-black font-semibold leading-normal">
             Bimore W
@@ -45,9 +49,11 @@ export default function Header({ isOpenSidebar, setIsOpenSidebar }: HeaderIF) {
         <img src="/icons/logout.svg" alt="" />
       </div>
       <div>
-        <div className="image bg-[#F1FAE6] rounded-full overflow-hidden lg:hidden">
-          <img src="/images/user.png" alt="" />
-        </div>
+        <Link to={"/login"}>
+          <div className="image bg-[#F1FAE6] rounded-full overflow-hidden lg:hidden">
+            <img src="/images/user.png" alt="" />
+          </div>
+        </Link>
       </div>
       <img
         onClick={() => setIsOpenSidebar(!isOpenSidebar)}

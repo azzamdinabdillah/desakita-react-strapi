@@ -5,7 +5,7 @@ import Label from "../../../components/Label";
 
 export default function Login() {
   return (
-    <div className="grid lg:grid-cols-2 p-3 lg:p-3 h-dvh lg:h-full place-items-center">
+    <div className="grid lg:grid-cols-2 p-3 lg:p-3 min-h-dvh place-items-center">
       <div className="p-4 py-4 lg:p-8 h-fit max-w-[430px] lg:max-w-[486px] w-full bg-white gap-6 lg:gap-8 flex flex-col items-center rounded-3xl">
         <img
           className="max-w-[150px] lg:max-w-[197px]"
