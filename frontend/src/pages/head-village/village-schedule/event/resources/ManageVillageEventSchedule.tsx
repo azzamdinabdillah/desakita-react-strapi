@@ -27,8 +27,8 @@ export default function ManageApplicantSocialDonate() {
         }
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-8 gap-4 items-start">
-        <WrapperElement customClass="lg:col-span-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-8 gap-4 items-start">
+        <WrapperElement customClass="lg:col-span-5 md:col-span-1">
           <Title subTitle="Informasi Event" />
 
           <CardItemGeneral
@@ -106,7 +106,7 @@ export default function ManageApplicantSocialDonate() {
           </div>
         </WrapperElement>
 
-        <WrapperElement customClass="lg:col-span-3">
+        <WrapperElement customClass="lg:col-span-3 md:col-span-1">
           <Title subTitle="Latest Participants" />
 
           <div className="flex gap-3.5 flex-col">

@@ -51,7 +51,7 @@ export default function CreateVillageEventSchedule() {
 
       <WrapperElement>
         <form className="flex-wrapper">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:justify-between items-center">
             <Label customClass="col-span-2" labelFor="village-name">
               Thumbnail Event Terkait
             </Label>
@@ -63,7 +63,7 @@ export default function CreateVillageEventSchedule() {
                     : "/images/placeholder-upload-thumbnail-bansos.png"
                 }
                 alt=""
-                className="w-[100px] lg:w-[120px] h-[80px] lg:h-[100px] rounded-3xl object-cover"
+                className="w-[100px] md:w-[120px] h-[80px] md:h-[100px] rounded-3xl object-cover"
               />
               <Button
                 variant="black"
@@ -89,7 +89,7 @@ export default function CreateVillageEventSchedule() {
 
           <hr />
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:justify-between items-center">
             <Label customClass="col-span-2" labelFor="head-name">
               Nama Event
             </Label>
@@ -106,15 +106,15 @@ export default function CreateVillageEventSchedule() {
 
           <hr />
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:justify-between items-center">
             <Label customClass="col-span-2" labelFor="village-total-citizen">
               Pilih status event
             </Label>
             <div className="col-span-3">
-              <div className="flex flex-wrap gap-3 lg:gap-6 ">
+              <div className="flex flex-wrap gap-3 md:gap-6 ">
                 <label
                   htmlFor="main-material"
-                  className="label-radio label-input-radio lg:flex-[40%]"
+                  className="label-radio label-input-radio md:flex-[40%]"
                 >
                   <div className="flex gap-2">
                     <input
@@ -128,12 +128,12 @@ export default function CreateVillageEventSchedule() {
                   <img
                     src="/icons/tick-circle.svg"
                     alt=""
-                    className="w-5 lg:w-6"
+                    className="w-5 md:w-6"
                   />
                 </label>
                 <label
                   htmlFor="money"
-                  className="label-radio label-input-radio lg:flex-[40%]"
+                  className="label-radio label-input-radio md:flex-[40%]"
                 >
                   <div className="flex gap-2">
                     <input
@@ -147,7 +147,7 @@ export default function CreateVillageEventSchedule() {
                   <img
                     src="/icons/close-circle-3.svg"
                     alt=""
-                    className="w-5 lg:w-6"
+                    className="w-5 md:w-6"
                   />
                 </label>
               </div>
@@ -156,7 +156,7 @@ export default function CreateVillageEventSchedule() {
 
           <hr />
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:justify-between items-center">
             <Label customClass="col-span-2" labelFor="head-name">
               Harga Event
             </Label>
@@ -173,7 +173,7 @@ export default function CreateVillageEventSchedule() {
 
           <hr />
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:justify-between items-center">
             <Label customClass="col-span-2" labelFor="head-date-birth">
               Tanggal event dilakukan
             </Label>
@@ -197,7 +197,7 @@ export default function CreateVillageEventSchedule() {
 
           <hr />
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:justify-between items-center">
             <Label customClass="col-span-2" labelFor="head-pw">
               Waktu event dilakukan
             </Label>
@@ -219,7 +219,7 @@ export default function CreateVillageEventSchedule() {
 
           <hr />
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-2 lg:justify-between items-center">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:justify-between items-center">
             <Label customClass="col-span-2" labelFor="village-location">
               Deskripsi event terkait
             </Label>

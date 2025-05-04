@@ -61,8 +61,8 @@ export default function VillageProfile() {
         }
       />
 
-      <div className="grid grid-cols-1 lg:flex gap-3.5 lg:items-start">
-        <WrapperElement customClass="lg:flex-1">
+      <div className="grid grid-cols-1 md:grid-cols-8 gap-4 items-start">
+        <WrapperElement customClass="md:col-span-5">
           <Title subTitle="Nama Desa" icon="/icons/nama-desa.svg" />
 
           <div className="flex flex-col gap-1.5">
@@ -198,7 +198,7 @@ export default function VillageProfile() {
           </div>
         </WrapperElement>
 
-        <WrapperElement customClass="lg:w-[398px]">
+        <WrapperElement customClass="md:col-span-3">
           <Title subTitle="Detail Desa" />
 
           <div className="flex flex-col gap-4">

@@ -10,17 +10,7 @@ import DashboardStatus from "../../../../components/DashboardStatus";
 export default function ApplicantSocialDonate() {
   return (
     <div className="flex flex-col gap-6">
-      <TitlePage
-        title="Pengajuan Bantuan Sosial"
-        leftElement={
-          <Link to={"/social-donate/list-social-donate/create-social-donate"}>
-            <Button variant="green">
-              <img className="w-5 lg:w-6" src="/icons/add-square.svg" alt="" />
-              Add New
-            </Button>
-          </Link>
-        }
-      />
+      <TitlePage title="Pengajuan Bantuan Sosial" />
 
       <div className="flex flex-col">
         <div className="top flex flex-wrap justify-between items-center gap-3">
